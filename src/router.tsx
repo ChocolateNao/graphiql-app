@@ -3,9 +3,10 @@ import {
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
-import App from 'App';
 
 import ErrorFallback from 'components/ErrorFallback';
+
+import App from './App';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
