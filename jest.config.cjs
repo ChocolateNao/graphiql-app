@@ -6,6 +6,7 @@ module.exports = {
       '<rootDir>/src/tests/mock/fileMock.js',
     '\\.(css|less|scss)$': '<rootDir>/src/tests/mock/styleMock.js',
     '^components/(.*)$': '<rootDir>/src/components/$1',
+    '^layouts/(.*)$': '<rootDir>/src/layouts/$1',
     '^ui/(.*)$': '<rootDir>/src/components/ui/$1',
     '^pages/(.*)$': '<rootDir>/src/pages/$1',
     '^api/(.*)$': '<rootDir>/src/api/$1',
