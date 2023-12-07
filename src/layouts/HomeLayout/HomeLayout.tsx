@@ -15,7 +15,7 @@ function HomeLayout() {
     }
   }, [user, loading, navigate]);
   return (
-    <div className={styles.homeLayout}>
+    <div>
       <header>
         <nav className={styles.navigation}>
           {user && (
