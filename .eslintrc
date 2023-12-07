@@ -61,7 +61,8 @@
       { "props": true, "ignorePropertyModificationsFor": ["state"] }
     ],
     "react/jsx-props-no-spreading": ["error", { "html": "ignore" }],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-alert": "off"
   },
   "overrides": [
     {

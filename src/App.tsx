@@ -1,7 +1,36 @@
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
+import HomeLayout from 'layouts/HomeLayout';
+
+import ErrorFallback from 'components/ErrorFallback';
+import Login from 'pages/Login';
+import MainPage from 'pages/MainPage';
+import Register from 'pages/Register';
+import Reset from 'pages/Reset';
+import WelcomePage from 'pages/WelcomePage';
+
 import './App.scss';
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" errorElement={<ErrorFallback />}>
+      <Route index element={<WelcomePage />} />
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
+      <Route path="reset" element={<Reset />} />
+      <Route path="home" element={<HomeLayout />}>
+        <Route index element={<MainPage />} />
+      </Route>
+    </Route>
+  )
+);
+
 function App() {
-  return <>Hello World</>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
