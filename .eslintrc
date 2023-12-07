@@ -76,7 +76,7 @@
               ["^react", "^@?\\w"],
               // Internal packages (ALIASES ARE HERE).
               [
-                "^(components|ui|context|api|pages|assets|resources|shared|models|styles|store)(/.*|$)"
+                "^(components|ui|context|api|pages|assets|resources|shared|models|styles|store|layouts|utils)(/.*|$)"
               ],
               // Side effect imports.
               ["^\\u0000"],

@@ -27,7 +27,8 @@
       "shared/*": ["./shared/*"],
       "store/*": ["./store/*"],
       "hooks/*": ["./hooks/*"],
-      "utils/*": ["./utils/*"]
+      "utils/*": ["./utils/*"],
+      "layouts/*": ["./layouts/*"]
     }
   },
   "include": ["src"],

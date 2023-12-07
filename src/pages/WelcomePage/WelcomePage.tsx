@@ -1,5 +1,6 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
+
 import { auth } from 'utils/firebase';
 
 import styles from './WelcomePage.module.scss';

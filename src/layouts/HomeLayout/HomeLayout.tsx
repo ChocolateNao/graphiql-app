@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+
 import { auth, logout } from 'utils/firebase';
 
 import styles from './HomeLayout.module.scss';

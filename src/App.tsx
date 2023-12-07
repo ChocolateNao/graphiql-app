@@ -4,9 +4,9 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import HomeLayout from 'layouts/HomeLayout';
 
 import ErrorFallback from 'components/ErrorFallback';
+import HomeLayout from 'layouts/HomeLayout';
 import Login from 'pages/Login';
 import MainPage from 'pages/MainPage';
 import Register from 'pages/Register';
