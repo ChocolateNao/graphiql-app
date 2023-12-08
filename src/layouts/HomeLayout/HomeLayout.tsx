@@ -21,7 +21,9 @@ function HomeLayout() {
         <nav className={styles.navigation}>
           {user && (
             <>
-              <NavLink to="/">Welcome</NavLink>
+              <NavLink className={styles.welcome} to="/">
+                Welcome
+              </NavLink>
               <div>En</div>
               <button type="button" onClick={logout}>
                 Logout

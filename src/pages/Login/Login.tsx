@@ -1,63 +1,94 @@
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+import { FormLogin } from 'models/AuthInterfaces';
 import {
   auth,
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from 'utils/firebase';
+import loginSchema from 'utils/validationLogin';
 
 import styles from './Login.module.scss';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [user, loading] = useAuthState(auth);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) });
+
   useEffect(() => {
-    if (loading) {
-      return;
-    }
     if (user) navigate('/home');
-  }, [user, loading, navigate]);
+  }, [user, navigate]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const onSubmit = (data: FormLogin) => {
+    logInWithEmailAndPassword(data.email, data.password);
+  };
+
   return (
     <div className={styles.login}>
-      <div className={styles.login__container}>
-        <input
-          type="text"
-          className={styles.login__textBox}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className={styles.login__textBox}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button
-          type="button"
-          className={styles.login__btn}
-          onClick={() => logInWithEmailAndPassword(email, password)}
-        >
-          Login
-        </button>
-        <button
-          type="button"
-          className={`${styles.login__btn} ${styles.login__google}`}
-          onClick={signInWithGoogle}
-        >
-          Login with Google
-        </button>
-        <div>
-          <Link to="/reset">Forgot Password</Link>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <h4 className={styles.title}>Login</h4>
+        <div className={styles.input_field}>
+          <label className={styles.label}>Email</label>
+          <input
+            className={styles.login__textBox}
+            {...register('email')}
+            placeholder="Enter you email address"
+          />
+          {errors.email ? (
+            <p className={styles.error}>{errors.email.message}</p>
+          ) : (
+            <p className={styles.hidden}>Placeholder</p>
+          )}
         </div>
-        <div>
-          Don&apos;t have an account? <Link to="/register">Register</Link> now.
+        <div className={styles.input_field}>
+          <label className={styles.label}>Password</label>
+          <input
+            type={showPassword ? 'text' : 'password'}
+            className={styles.login__textBox}
+            {...register('password')}
+            placeholder="Enter your password"
+          />
+          <div className={styles.show_password}>
+            <label className={styles.label}>Show password</label>
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={() => setShowPassword(!showPassword)}
+            />
+          </div>
+          {errors.password ? (
+            <p className={styles.error}>{errors.password.message}</p>
+          ) : (
+            <p className={styles.hidden}>Placeholder</p>
+          )}
         </div>
+        <input type="submit" className={styles.login__btn} value="Login" />
+      </form>
+      <button
+        type="button"
+        className={styles.login__google}
+        onClick={signInWithGoogle}
+      >
+        Login with Google
+      </button>
+      <div>
+        <Link to="/reset">Forgot Password</Link>
+      </div>
+      <div>
+        Don&apos;t have an account? <Link to="/register">Register</Link> now.
       </div>
     </div>
   );
