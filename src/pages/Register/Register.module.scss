@@ -1,33 +1,86 @@
 .register {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.register__container {
+  border: 1px solid #e3e3e3;
+  padding: 45px 20px 20px 20px;
+  text-align: left;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  background-color: #dcdcdc;
-  padding: 30px;
+  max-width: 500px;
+  margin: 20px auto;
 }
+
+.title {
+  font-size: 1.5rem;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
 .register__textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
+  height: 40px;
+  color: #7b7b7b;
+  font-size: 13px !important;
+  display: inline-block;
+  padding: 10px 15px;
+  line-height: 30px;
+  width: 100%;
+  border: 2px solid #eeeeee;
+  background: #fff;
+  border-radius: 3px;
 }
-.register__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  border: none;
-  color: white;
-  background-color: black;
-}
+
 .register__google {
-  background-color: #4285f4;
+  color: #535bf2;
+  transition: all 0.5s ease;
+  font-weight: 600;
+  padding: 15px 0;
 }
-.register div {
-  margin-top: 7px;
+.register__google:hover {
+  color: rgb(85, 26, 139);
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.input_field {
+  margin-bottom: 15px;
+}
+
+.register__btn {
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  height: 50px;
+  transition: all 0.5s ease;
+  padding: 0 50px;
+  border: 2px solid #eeeeee;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.register__btn:hover {
+  color: #eeeeee;
+  background-color: #535bf2;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+}
+
+.hidden {
+  font-size: 12px;
+  visibility: hidden;
+}
+
+.show_password {
+  display: flex;
+  gap: 5px;
+  .label {
+    margin-bottom: 0;
+  }
 }

@@ -6,16 +6,23 @@ import { auth } from 'utils/firebase';
 import styles from './WelcomePage.module.scss';
 
 function WelcomePage() {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+  if (loading) return <div>Loading...</div>;
   return (
     <>
       <nav className={styles.navigation}>
         {user ? (
-          <NavLink to="/home">Home</NavLink>
+          <NavLink className={styles.link} to="/home">
+            Home
+          </NavLink>
         ) : (
           <>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/register">Register</NavLink>
+            <NavLink className={styles.link} to="/login">
+              Login
+            </NavLink>
+            <NavLink className={styles.link} to="/register">
+              Register
+            </NavLink>
           </>
         )}
       </nav>

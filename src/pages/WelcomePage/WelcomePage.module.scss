@@ -3,9 +3,12 @@
   gap: 50px;
   justify-content: center;
   padding: 1rem;
-  & > * {
+  .link {
     color: black;
     transition: all 0.5s ease;
+    &:hover {
+      color: #535bf2;
+    }
   }
 }
 .title {

@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { FirebaseError, initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
@@ -46,20 +47,28 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
     }
+    toast.success(
+      `User ${user.displayName} with email ${user.email} has successfully signed in!`
+    );
   } catch (err: unknown) {
     if (err instanceof FirebaseError) {
-      console.error(err);
-      alert(err.message);
+      toast.error(err.message);
     }
   }
 };
 const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    toast.success(`User with email ${email} has successfully signed in!`);
   } catch (err: unknown) {
     if (err instanceof FirebaseError) {
-      console.error(err);
-      alert(err.message);
+      if (err.code === 'auth/invalid-credential') {
+        toast.error(
+          'Invalid credentials. Please check the entered data and try again.'
+        );
+      } else {
+        toast.error(err.message);
+      }
     }
   }
 };
@@ -77,21 +86,26 @@ const registerWithEmailAndPassword = async (
       authProvider: 'local',
       email,
     });
+    toast.success(
+      `User ${name} with email ${email} has successfully registered!`
+    );
   } catch (err: unknown) {
     if (err instanceof FirebaseError) {
-      console.error(err);
-      alert(err.message);
+      if (err.code === 'auth/email-already-in-use') {
+        toast.error(`User ${name} is already in use with email ${email}`);
+      } else {
+        toast.error(err.message);
+      }
     }
   }
 };
 const sendPasswordReset = async (email: string) => {
   try {
     await sendPasswordResetEmail(auth, email);
-    alert('Password reset link sent!');
+    toast.success('Password reset link sent!');
   } catch (err: unknown) {
     if (err instanceof FirebaseError) {
-      console.error(err);
-      alert(err.message);
+      toast.error(err.message);
     }
   }
 };
