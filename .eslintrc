@@ -62,7 +62,7 @@
     ],
     "react/jsx-props-no-spreading": ["error", { "html": "ignore" }],
     "prettier/prettier": "error",
-    "no-alert": "off"
+    "jsx-a11y/label-has-associated-control": "off"
   },
   "overrides": [
     {
