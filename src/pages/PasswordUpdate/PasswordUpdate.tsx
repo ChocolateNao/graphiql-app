@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FormPassword } from 'models/AuthInterfaces';
-import { auth, resetPassword } from 'utils/firebase';
+import { resetPassword } from 'utils/firebase';
 import passwordUpdateSchema from 'utils/valifationPasswordUpdate';
 
 import styles from './PasswordUpdate.module.scss';
@@ -13,7 +12,6 @@ import styles from './PasswordUpdate.module.scss';
 function PasswordUpdate() {
   const urlParams = new URLSearchParams(window.location.search);
   const actionCode = urlParams.get('oobCode');
-  const [user, loading] = useAuthState(auth);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
   const navigate = useNavigate();
@@ -26,12 +24,8 @@ function PasswordUpdate() {
     resolver: yupResolver(passwordUpdateSchema),
   });
   useEffect(() => {
-    if (user) navigate('/home');
-  }, [user, loading, navigate]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+    if (!actionCode) navigate('/home');
+  }, [actionCode, navigate]);
 
   const onSubmit = (data: FormPassword) => {
     if (actionCode) {
