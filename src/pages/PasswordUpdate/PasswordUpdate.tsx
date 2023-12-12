@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FormRegister } from 'models/AuthInterfaces';
-import {
-  auth,
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-} from 'utils/firebase';
-import registerSchema from 'utils/validationRegister';
+import { FormPassword } from 'models/AuthInterfaces';
+import { auth, resetPassword } from 'utils/firebase';
+import passwordUpdateSchema from 'utils/valifationPasswordUpdate';
 
-import styles from './Register.module.scss';
+import styles from './PasswordUpdate.module.scss';
 
-function Register() {
+function PasswordUpdate() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const actionCode = urlParams.get('oobCode');
   const [user, loading] = useAuthState(auth);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
@@ -23,8 +21,10 @@ function Register() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(registerSchema) });
-
+  } = useForm({
+    mode: 'onChange',
+    resolver: yupResolver(passwordUpdateSchema),
+  });
   useEffect(() => {
     if (user) navigate('/home');
   }, [user, loading, navigate]);
@@ -33,47 +33,23 @@ function Register() {
     return <div>Loading...</div>;
   }
 
-  const onSubmit = (data: FormRegister) => {
-    registerWithEmailAndPassword(data.name, data.email, data.password);
+  const onSubmit = (data: FormPassword) => {
+    if (actionCode) {
+      resetPassword(actionCode, data.password, navigate);
+    }
   };
 
   return (
-    <div className={styles.register}>
+    <div className={styles.password_update}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h4 className={styles.title}>Register</h4>
-        <div className={styles.input_field}>
-          <label>Full name</label>
-          <input
-            className={styles.register__textBox}
-            {...register('name')}
-            placeholder="Enter your full name"
-          />
-          {errors.name ? (
-            <p className={styles.error}>{errors.name.message}</p>
-          ) : (
-            <p className={styles.hidden}>Placeholder</p>
-          )}
-        </div>
-        <div className={styles.input_field}>
-          <label>Email</label>
-          <input
-            className={styles.register__textBox}
-            {...register('email')}
-            placeholder="Enter your email address"
-          />
-          {errors.email ? (
-            <p className={styles.error}>{errors.email.message}</p>
-          ) : (
-            <p className={styles.hidden}>Placeholder</p>
-          )}
-        </div>
+        <h4 className={styles.title}>Set a new password</h4>
         <div className={styles.input_field}>
           <label>Password</label>
           <input
             type={showPassword ? 'text' : 'password'}
-            className={styles.register__textBox}
+            className={styles.password_update__textBox}
             {...register('password')}
-            placeholder="Enter your password"
+            placeholder="Enter new password"
           />
           <div className={styles.show_password}>
             <label className={styles.label}>Show password</label>
@@ -93,9 +69,9 @@ function Register() {
           <label>Repeat Password</label>
           <input
             type={showPasswordRepeat ? 'text' : 'password'}
-            className={styles.register__textBox}
+            className={styles.password_update__textBox}
             {...register('confirmPassword')}
-            placeholder="Repeat your password"
+            placeholder="Repeat new password"
           />
           <div className={styles.show_password}>
             <label className={styles.label}>Show password</label>
@@ -113,21 +89,11 @@ function Register() {
         </div>
         <input
           type="submit"
-          className={styles.register__btn}
-          value="Register"
+          className={styles.password_update__btn}
+          value="Set password"
         />
       </form>
-      <button
-        type="button"
-        className={styles.register__google}
-        onClick={signInWithGoogle}
-      >
-        Register with Google
-      </button>
-      <div>
-        Already have an account? <Link to="/login">Login</Link> now.
-      </div>
     </div>
   );
 }
-export default Register;
+export default PasswordUpdate;
