@@ -1,18 +1,79 @@
 {
   "loading": "Loading...",
+  "select": "Select",
+  "now": "now",
+  "settings": {
+    "changeLocale": "Change language",
+    "currentLocale": "Current"
+  },
+  "authorization": {
+    "login": "Log In",
+    "loginGoogle": "Log In with Google",
+    "register": "Sign Up",
+    "registerGoogle": "Sign Up with Google",
+    "logout": "Log Out",
+    "passwordForgot": "Forgot Password",
+    "passwordReset": "Password Reset",
+    "lables": {
+      "email": "E-Mail",
+      "password": "Password",
+      "passwordConfirm": "Password repeat",
+      "passwordShow": "Show password",
+      "fullName": "Full Name"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "welcome": "Welcome"
+  },
   "welcomePage": {
     "welcome": "Welcome to the app, %name%!"
   },
   "loginPage": {
-    "login": "Login",
-    "register": "Register"
+    "noProfile": "Don't have an account?"
+  },
+  "registerPage": {
+    "yesProfile": "Already have an account?"
+  },
+  "passwordResetPage": {
+    "sendResetLink": "Send password reset e-mail"
+  },
+  "errorPage": {
+    "errorFallback": {
+      "header": "Oopsie Woopsie! Something went wrong.",
+      "text": "You can try to refresh the page or simply click the button here that will do it for you.",
+      "reload": "Reload page"
+    }
   },
   "placeholders": {
-    "placeholderFullName": "Enter your full name"
+    "fullName": "Enter your full name",
+    "email": "Enter your e-mail address",
+    "password": "Enter your password",
+    "passwordConfirm": "Repeat your password"
   },
   "yup": {
-    "string": {
-      "matches": "First letter should be uppercased"
+    "name": {
+      "matches": "First letter should be uppercased",
+      "required": "Name is required in order to proceed"
+    },
+    "email": {
+      "required": "E-Mail address is required in order to proceed",
+      "valid": "E-Mail address must be valid",
+      "dot": "Domain must contain a dot",
+      "domain": "Domain must contain at least two characters after the dot"
+    },
+    "password": {
+      "required": "Password is required in order to proceed",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "number": "Password must contain at least one number",
+      "special": "Password must contain at least one special character",
+      "length": "Password must be at least 8 characters long",
+      "unicode-password": "Password must support Unicode characters"
+    },
+    "confirmPassword": {
+      "required": "Password repetition is required in order to proceed",
+      "oneOf": "Passwords must match"
     }
   }
 }

@@ -1,32 +1,37 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 
+import LanguageSelect from 'components/LanguageSelect';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import { auth } from 'utils/firebase';
 
 import styles from './WelcomePage.module.scss';
 
 function WelcomePage() {
   const [user, loading] = useAuthState(auth);
-  if (loading) return <div>Loading...</div>;
+  const { t } = useLocalization();
+
+  if (loading) return <div>{t('loading')}</div>;
   return (
     <>
       <nav className={styles.navigation}>
+        <LanguageSelect />
         {user ? (
           <NavLink className={styles.link} to="/home">
-            Home
+            {t('navigation.home')}
           </NavLink>
         ) : (
           <>
             <NavLink className={styles.link} to="/login">
-              Login
+              {t('authorization.login')}
             </NavLink>
             <NavLink className={styles.link} to="/register">
-              Register
+              {t('authorization.register')}
             </NavLink>
           </>
         )}
       </nav>
-      <div className={styles.title}>Welcome to app!!!</div>
+      <div className={styles.title}>{t('welcomePage.welcome')}</div>
     </>
   );
 }
