@@ -1,4 +1,4 @@
-import { SupportedLocale } from 'shared/context/LocalizationContext';
+import { SupportedLocale } from 'utils/localizationConfig';
 
 export interface LocalizationConfig {
   defaultLocale: SupportedLocale;
