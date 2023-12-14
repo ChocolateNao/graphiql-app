@@ -6,7 +6,7 @@ describe('Error Fallback Component', () => {
   it('renders the component', () => {
     render(<ErrorFallback />);
 
-    const element = screen.getByText(/Something went wrong/i);
+    const element = screen.getByText(/errorPage.errorFallback.text/i);
 
     expect(element).toBeInTheDocument();
   });
