@@ -1,0 +1,18 @@
+{
+  "loading": "Loading...",
+  "welcomePage": {
+    "welcome": "Welcome to the app, %name%!"
+  },
+  "loginPage": {
+    "login": "Login",
+    "register": "Register"
+  },
+  "placeholders": {
+    "placeholderFullName": "Enter your full name"
+  },
+  "yup": {
+    "string": {
+      "matches": "First letter should be uppercased"
+    }
+  }
+}

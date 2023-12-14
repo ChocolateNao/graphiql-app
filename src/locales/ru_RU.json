@@ -1,0 +1,18 @@
+{
+  "loading": "Загрузка...",
+  "welcomePage": {
+    "welcome": "Добро пожаловать в приложение, %name%!"
+  },
+  "loginPage": {
+    "login": "Войти",
+    "register": "Регистрация"
+  },
+  "placeholders": {
+    "placeholderFullName": "Введите своё полное имя"
+  },
+  "yup": {
+    "string": {
+      "matches": "Первая буква должна быть заглавной"
+    }
+  }
+}
