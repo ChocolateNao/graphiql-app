@@ -10,7 +10,7 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from 'utils/firebase';
-import schema from 'utils/validation';
+import registerSchema from 'utils/validationRegister';
 
 import styles from './Register.module.scss';
 
@@ -23,7 +23,7 @@ function Register() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
+  } = useForm({ mode: 'onChange', resolver: yupResolver(registerSchema) });
 
   useEffect(() => {
     if (user) navigate('/home');
