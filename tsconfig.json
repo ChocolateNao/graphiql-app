@@ -16,21 +16,21 @@
     "noImplicitAny": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "components/*": ["./components/*"],
-      "ui/*": ["./components/ui/*"],
-      "pages/*": ["./pages/*"],
-      "api/*": ["./api/*"],
-      "assets/*": ["./assets/*"],
-      "models/*": ["./models/*"],
-      "shared/*": ["./shared/*"],
-      "store/*": ["./store/*"],
-      "hooks/*": ["./hooks/*"],
-      "utils/*": ["./utils/*"],
-      "layouts/*": ["./layouts/*"]
+      "components/*": ["./src/components/*"],
+      "ui/*": ["./src/components/ui/*"],
+      "pages/*": ["./src/pages/*"],
+      "api/*": ["./src/api/*"],
+      "assets/*": ["./src/assets/*"],
+      "models/*": ["./src/models/*"],
+      "shared/*": ["./src/shared/*"],
+      "store/*": ["./src/store/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "utils/*": ["./src/utils/*"],
+      "layouts/*": ["./src/layouts/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "tests", "tests/mock"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
