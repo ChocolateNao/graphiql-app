@@ -14,10 +14,13 @@
     "logout": "Log Out",
     "passwordForgot": "Forgot Password",
     "passwordReset": "Password Reset",
+    "passwordUpdate": "Set a new password",
+    "passwordSet": "Set Password",
     "lables": {
       "email": "E-Mail",
       "password": "Password",
-      "passwordConfirm": "Password repeat",
+      "passwordNew": "New Password",
+      "passwordConfirm": "Password Repeat",
       "passwordShow": "Show password",
       "fullName": "Full Name"
     }
@@ -38,6 +41,11 @@
   "passwordResetPage": {
     "sendResetLink": "Send password reset e-mail"
   },
+  "mainPage": {
+    "lables": {
+      "endpoint": "API endpoint:"
+    }
+  },
   "errorPage": {
     "errorFallback": {
       "header": "Oopsie Woopsie! Something went wrong.",
@@ -49,7 +57,10 @@
     "fullName": "Enter your full name",
     "email": "Enter your e-mail address",
     "password": "Enter your password",
-    "passwordConfirm": "Repeat your password"
+    "passwordConfirm": "Repeat your password",
+    "passwordUpdate": "Enter new password",
+    "code": "Enter your query here",
+    "endpoint": "Enter your Graph QL API endpoint"
   },
   "yup": {
     "name": {

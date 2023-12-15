@@ -31,7 +31,9 @@ function WelcomePage() {
           </>
         )}
       </nav>
-      <div className={styles.title}>{t('welcomePage.welcome')}</div>
+      <div className={styles.title}>
+        {t('welcomePage.welcome', { name: user ? user.email : 'stranger' })}
+      </div>
     </>
   );
 }

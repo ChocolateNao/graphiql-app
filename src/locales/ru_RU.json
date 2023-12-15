@@ -14,10 +14,13 @@
     "logout": "Выйти",
     "passwordForgot": "Забыл пароль",
     "passwordReset": "Восстановление пароля",
+    "passwordUpdate": "Обновление пароля",
+    "passwordSet": "Установить пароль",
     "lables": {
       "email": "Эл. почта",
       "password": "Пароль",
-      "passwordConfirm": "Повторение пароля",
+      "passwordNew": "Новый пароль",
+      "passwordConfirm": "Подтверждение пароля",
       "passwordShow": "Показать пароль",
       "fullName": "Полное имя (латиница)"
     }
@@ -38,6 +41,11 @@
   "passwordResetPage": {
     "sendResetLink": "Отправить ссылку на восстановение пароля на эл.почту"
   },
+  "mainPage": {
+    "lables": {
+      "endpoint": "Адрес API:"
+    }
+  },
   "errorPage": {
     "errorFallback": {
       "header": "Упс, что-то пошло не так!",
@@ -49,7 +57,10 @@
     "fullName": "Введите полное имя",
     "email": "Введите адрес эл. почты",
     "password": "Введите пароль",
-    "passwordConfirm": "Повторите введенный пароль"
+    "passwordConfirm": "Повторите введённый пароль",
+    "passwordUpdate": "Введите новый пароль",
+    "code": "Введите Graph QL запрос",
+    "endpoint": "Введите Graph QL API URL адрес"
   },
   "yup": {
     "name": {
