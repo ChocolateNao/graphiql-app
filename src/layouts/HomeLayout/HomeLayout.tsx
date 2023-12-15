@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 
+import LanguageSelect from 'components/LanguageSelect';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import { auth, logout } from 'utils/firebase';
 
 import styles from './HomeLayout.module.scss';
@@ -9,6 +11,7 @@ import styles from './HomeLayout.module.scss';
 function HomeLayout() {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+  const { t } = useLocalization();
   useEffect(() => {
     if (loading) return;
     if (!user) {
@@ -22,11 +25,11 @@ function HomeLayout() {
           {user && (
             <>
               <NavLink className={styles.welcome} to="/">
-                Welcome
+                {t('navigation.welcome')}
               </NavLink>
-              <div>En</div>
+              <LanguageSelect />
               <button type="button" onClick={logout}>
-                Logout
+                {t('authorization.logout')}
               </button>
             </>
           )}

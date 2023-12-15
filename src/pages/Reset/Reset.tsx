@@ -5,12 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FormReset } from 'models/AuthInterfaces';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import { auth, sendPasswordReset } from 'utils/firebase';
 import resetSchema from 'utils/validationReset';
 
 import styles from './Reset.module.scss';
 
 function Reset() {
+  const { t } = useLocalization();
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   const {
@@ -23,7 +25,7 @@ function Reset() {
   }, [user, loading, navigate]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>{t('loading')}</div>;
   }
 
   const onSubmit = (data: FormReset) => {
@@ -32,16 +34,16 @@ function Reset() {
   return (
     <div className={styles.reset}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h4 className={styles.title}>Password reset</h4>
+        <h4 className={styles.title}>{t('authorization.passwordReset')}</h4>
         <div className={styles.input_field}>
-          <label>Email</label>
+          <label>{t('authorization.lables.email')}</label>
           <input
             className={styles.reset__textBox}
             {...register('email')}
-            placeholder="Enter you email address"
+            placeholder={t('placeholders.email')}
           />
           {errors.email ? (
-            <p className={styles.error}>{errors.email.message}</p>
+            <p className={styles.error}>{t(errors.email.message)}</p>
           ) : (
             <p className={styles.hidden}>Placeholder</p>
           )}
@@ -50,11 +52,12 @@ function Reset() {
         <input
           type="submit"
           className={styles.reset__btn}
-          value="Send password reset email"
+          value={t('passwordResetPage.sendResetLink')}
         />
       </form>
       <div>
-        Don&apos;t have an account? <Link to="/register">Register</Link> now.
+        {t('loginPage.noProfile')}{' '}
+        <Link to="/register">{t('authorization.register')}</Link> {t('now')}.
       </div>
     </div>
   );

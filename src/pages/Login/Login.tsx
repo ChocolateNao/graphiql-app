@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FormLogin } from 'models/AuthInterfaces';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import {
   auth,
   logInWithEmailAndPassword,
@@ -15,6 +16,7 @@ import loginSchema from 'utils/validationLogin';
 import styles from './Login.module.scss';
 
 function Login() {
+  const { t } = useLocalization();
   const [user, loading] = useAuthState(auth);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ function Login() {
   }, [user, navigate]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>{t('loading')}</div>;
   }
 
   const onSubmit = (data: FormLogin) => {
@@ -39,30 +41,36 @@ function Login() {
   return (
     <div className={styles.login}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h4 className={styles.title}>Login</h4>
+        <h4 className={styles.title}>{t('authorization.login')}</h4>
         <div className={styles.input_field}>
-          <label className={styles.label}>Email</label>
+          <label className={styles.label}>
+            {t('authorization.lables.email')}
+          </label>
           <input
             className={styles.login__textBox}
             {...register('email')}
-            placeholder="Enter you email address"
+            placeholder={t('placeholders.email')}
           />
           {errors.email ? (
-            <p className={styles.error}>{errors.email.message}</p>
+            <p className={styles.error}>{t(errors.email.message)}</p>
           ) : (
             <p className={styles.hidden}>Placeholder</p>
           )}
         </div>
         <div className={styles.input_field}>
-          <label className={styles.label}>Password</label>
+          <label className={styles.label}>
+            {t('authorization.lables.password')}
+          </label>
           <input
             type={showPassword ? 'text' : 'password'}
             className={styles.login__textBox}
             {...register('password')}
-            placeholder="Enter your password"
+            placeholder={t('placeholders.password')}
           />
           <div className={styles.show_password}>
-            <label className={styles.label}>Show password</label>
+            <label className={styles.label}>
+              {t('authorization.lables.passwordShow')}
+            </label>
             <input
               type="checkbox"
               checked={showPassword}
@@ -70,25 +78,30 @@ function Login() {
             />
           </div>
           {errors.password ? (
-            <p className={styles.error}>{errors.password.message}</p>
+            <p className={styles.error}>{t(errors.password.message)}</p>
           ) : (
             <p className={styles.hidden}>Placeholder</p>
           )}
         </div>
-        <input type="submit" className={styles.login__btn} value="Login" />
+        <input
+          type="submit"
+          className={styles.login__btn}
+          value={t('authorization.login')}
+        />
       </form>
       <button
         type="button"
         className={styles.login__google}
         onClick={signInWithGoogle}
       >
-        Login with Google
+        {t('authorization.loginGoogle')}
       </button>
       <div>
-        <Link to="/reset">Forgot Password</Link>
+        <Link to="/reset">{t('authorization.passwordForgot')}</Link>
       </div>
       <div>
-        Don&apos;t have an account? <Link to="/register">Register</Link> now.
+        {t('loginPage.noProfile')}{' '}
+        <Link to="/register">{t('authorization.register')}</Link> {t('now')}.
       </div>
     </div>
   );
