@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FormReset } from 'models/AuthInterfaces';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import { auth, sendPasswordReset } from 'utils/firebase';
-import resetSchema from 'utils/validationEmail';
+import resetSchema from 'utils/validationReset';
 
 import styles from './Reset.module.scss';
 
