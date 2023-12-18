@@ -41,7 +41,7 @@ function HomeLayout() {
   }
 
   return (
-    <div>
+    <>
       <header className={`${styles.sticky} ${isSticky ? styles.shrink : ''}`}>
         <nav className={styles.navigation}>
           {user && (
@@ -60,7 +60,7 @@ function HomeLayout() {
       <main>
         <Outlet />
       </main>
-    </div>
+    </>
   );
 }
 
