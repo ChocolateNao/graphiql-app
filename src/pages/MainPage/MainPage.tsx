@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useLocalization } from 'shared/context/LocalizationContext';
 import makeGraphQLRequest from 'utils/graphql-request';
 
 import styles from './MainPage.module.scss';
@@ -8,6 +9,8 @@ function MainPage() {
   const [endpoint, setEndpoint] = useState('');
   const [request, setRequest] = useState('');
   const [response, setResponse] = useState('');
+
+  const { t } = useLocalization();
 
   const handleRequest = async () => {
     const res = await makeGraphQLRequest(endpoint, request);
@@ -27,12 +30,12 @@ function MainPage() {
     <div className={styles.dashboard}>
       <div className={styles.dashboard__endpoint_wrapper}>
         <label htmlFor="api-endpoint">
-          API endpoint:
+          {t('mainPage.lables.endpoint')}
           <input
             name="api-endpoint"
             id="api-endpoint"
             type="text"
-            placeholder="example: https://graphql-pokemon2.vercel.app"
+            placeholder={t('placeholders.endpoint')}
             className={styles.dashboard__endpoint_input}
             onChange={handleEndpointChange}
           />
@@ -42,7 +45,7 @@ function MainPage() {
         <div className={styles.dashboard__container}>
           <textarea
             className={styles.dashboard__textarea}
-            placeholder="Enter your code here"
+            placeholder={t('placeholders.code')}
             onChange={handleRequestFieldChange}
           />
           <button

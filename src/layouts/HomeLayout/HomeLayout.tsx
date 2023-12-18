@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 
+import LanguageSelect from 'components/LanguageSelect';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import { auth, logout } from 'utils/firebase';
 
 import styles from './HomeLayout.module.scss';
@@ -15,6 +17,7 @@ function HomeLayout() {
     setSticky(window.pageYOffset > 50);
   };
 
+  const { t } = useLocalization();
   useEffect(() => {
     window.addEventListener('scroll', checkScrollTop);
     return () => {
@@ -44,11 +47,11 @@ function HomeLayout() {
           {user && (
             <>
               <NavLink className={styles.welcome} to="/">
-                Welcome
+                {t('navigation.welcome')}
               </NavLink>
-              <div>En</div>
+              <LanguageSelect />
               <button type="button" onClick={logout}>
-                Logout
+                {t('authorization.logout')}
               </button>
             </>
           )}
