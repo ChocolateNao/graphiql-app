@@ -40,7 +40,7 @@ function Footer() {
           <img
             className={styles.logo}
             src="https://rs.school/images/rs_school_js.svg"
-            alt="Curse logo"
+            alt="Course logo"
           />
         </a>
       </div>
