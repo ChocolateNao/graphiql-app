@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Headers from 'components/Headers';
+import Variables from 'components/Variables';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import makeGraphQLRequest from 'utils/graphql-request';
 
@@ -9,12 +11,17 @@ function MainPage() {
   const [endpoint, setEndpoint] = useState('');
   const [request, setRequest] = useState('');
   const [response, setResponse] = useState('');
+  const [activeComponent, setActiveComponent] = useState<string | null>(null);
 
   const { t } = useLocalization();
 
+  const handleClick = (component: string) => {
+    setActiveComponent(component);
+  };
+
   const handleRequest = async () => {
     const res = await makeGraphQLRequest(endpoint, request);
-    setResponse(JSON.stringify(res));
+    setResponse(JSON.stringify(res, null, 2));
   };
   const handleRequestFieldChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
@@ -42,7 +49,7 @@ function MainPage() {
         </label>
       </div>
       <div className={styles.dashboard__wrapper}>
-        <div className={styles.dashboard__container}>
+        <div className={styles.cell1}>
           <textarea
             className={styles.dashboard__textarea}
             placeholder={t('placeholders.code')}
@@ -55,10 +62,22 @@ function MainPage() {
             onClick={handleRequest}
           />
         </div>
-        <div className={styles.dashboard__container}>
+        <div className={styles.cell2}>
           <pre>
             <span>{response}</span>
           </pre>
+        </div>
+        <div className={styles.cell3}>
+          <div className={styles.btn_wrapper}>
+            <button type="button" onClick={() => handleClick('Variables')}>
+              Variables
+            </button>
+            <button type="button" onClick={() => handleClick('Headers')}>
+              Headers
+            </button>
+          </div>
+          {activeComponent === 'Variables' && <Variables />}
+          {activeComponent === 'Headers' && <Headers />}
         </div>
       </div>
     </div>

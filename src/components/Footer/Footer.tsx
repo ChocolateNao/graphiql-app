@@ -6,6 +6,7 @@ function Footer() {
       <div>
         © 2023, Authors on GitHub:
         <a
+          className={styles.link}
           href="https://github.com/Sylphur"
           target="_blank"
           rel="noopener noreferrer"
@@ -14,6 +15,7 @@ function Footer() {
           Sylphur,{' '}
         </a>
         <a
+          className={styles.link}
           href="https://github.com/TatsianaSauko"
           target="_blank"
           rel="noopener noreferrer"
@@ -21,6 +23,7 @@ function Footer() {
           TatsianaSauko,{' '}
         </a>
         <a
+          className={styles.link}
           href="https://github.com/ChocolateNao"
           target="_blank"
           rel="noopener noreferrer"
@@ -28,7 +31,7 @@ function Footer() {
           ChocolateNao
         </a>
       </div>
-      <div>
+      <div className={styles.wrapper_logo}>
         <a
           href="https://rs.school/react/"
           target="_blank"
