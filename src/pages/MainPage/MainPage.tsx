@@ -5,13 +5,15 @@ import makeGraphQLRequest from 'utils/graphql-request';
 import styles from './MainPage.module.scss';
 
 function MainPage() {
-  const [endpoint, setEndpoint] = useState('');
+  const [endpoint, setEndpoint] = useState(
+    'https://rickandmortyapi.com/graphql'
+  );
   const [request, setRequest] = useState('');
   const [response, setResponse] = useState('');
 
   const handleRequest = async () => {
     const res = await makeGraphQLRequest(endpoint, request);
-    setResponse(JSON.stringify(res));
+    setResponse(JSON.stringify(res, null, 2));
   };
   const handleRequestFieldChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
