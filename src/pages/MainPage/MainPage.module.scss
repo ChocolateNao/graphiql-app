@@ -1,73 +1,99 @@
+@import '../../styles/abstract/placeholders.scss';
 .dashboard {
-  height: calc(100vh - 56px);
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  padding-top: 10px;
+  padding: 20px 0;
+  background-color: #bebdbd;
 }
+
 .dashboard__endpoint_wrapper {
-  width: 100%;
   background-color: #dcdcdc;
-  padding: 5px;
-  padding-left: 30px;
-  text-align: start;
+  padding: 13px 5px 5px 30px;
+  margin: 0 15px;
 }
+
+.dashboard__textarea {
+  @extend %custom-scroll;
+}
+
 .dashboard__endpoint_input {
   margin-left: 20px;
   padding: 5px;
-  width: 80%;
+  width: 40%;
 }
-.dashboard__wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-.dashboard__container {
-  height: 100%;
-  display: flex;
-  flex-grow: 1;
-  flex-basis: 0;
-  flex-direction: column;
-  text-align: start;
-  background-color: #dcdcdc;
-  padding: 30px;
-  position: relative;
-}
-.dashboard__textarea {
-  height: 100%;
-}
-.dashboard__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
-  border: none;
-  color: white;
-  background-color: black;
-}
+
 .dashboard__run_btn {
   background-image: url('/run.png');
   background-size: cover;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  position: absolute;
-  right: 2%;
-  top: 2%;
+  @extend %transition;
 }
+
 .dashboard__run_btn:hover {
   background-color: #bebdbd;
 }
 
-.dashboard div {
-  margin-top: 7px;
+.dashboard__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 70% 30%;
+  height: 90vh;
+  gap: 15px;
+  padding: 15px;
 }
-.main__wrapper {
+
+.cell1 {
+  padding: 20px;
   background-color: #dcdcdc;
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
+  grid-row: 1;
+  order: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cell2 {
+  padding: 20px;
+  background-color: #dcdcdc;
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  order: 3;
+  overflow-y: auto;
+  @extend %custom-scroll;
+}
+
+.cell3 {
+  padding: 20px;
+  background-color: #dcdcdc;
+  grid-row: 2;
+  order: 2;
+  .btn_wrapper {
+    padding-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    & > * {
+      @extend %transition;
+      font-weight: 600;
+    }
+    & > *:hover {
+      color: #62ab00;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard__wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .cell1,
+  .cell2,
+  .cell3 {
+    grid-column: 1;
+  }
+  .cell2 {
+    grid-row: 3;
+  }
+  .cell3 {
+    grid-row: 2;
+  }
 }

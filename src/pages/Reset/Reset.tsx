@@ -57,7 +57,10 @@ function Reset() {
       </form>
       <div>
         {t('loginPage.noProfile')}{' '}
-        <Link to="/register">{t('authorization.register')}</Link> {t('now')}.
+        <Link to="/register" className={styles.link}>
+          {t('authorization.register')}
+        </Link>{' '}
+        {t('now')}.
       </div>
     </div>
   );

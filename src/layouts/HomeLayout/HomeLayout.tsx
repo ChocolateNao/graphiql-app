@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 
@@ -10,17 +10,39 @@ import styles from './HomeLayout.module.scss';
 
 function HomeLayout() {
   const [user, loading] = useAuthState(auth);
+  const [isSticky, setSticky] = useState(false);
   const navigate = useNavigate();
+
+  const checkScrollTop = () => {
+    setSticky(window.pageYOffset > 50);
+  };
+
   const { t } = useLocalization();
   useEffect(() => {
-    if (loading) return;
-    if (!user) {
-      navigate('/');
-    }
-  }, [user, loading, navigate]);
+    window.addEventListener('scroll', checkScrollTop);
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop);
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = auth.onIdTokenChanged((user) => {
+      if (!user) {
+        navigate('/');
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [navigate]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div>
-      <header>
+    <>
+      <header className={`${styles.sticky} ${isSticky ? styles.shrink : ''}`}>
         <nav className={styles.navigation}>
           {user && (
             <>
@@ -38,7 +60,7 @@ function HomeLayout() {
       <main>
         <Outlet />
       </main>
-    </div>
+    </>
   );
 }
 

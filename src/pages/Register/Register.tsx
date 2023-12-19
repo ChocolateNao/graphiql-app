@@ -30,7 +30,7 @@ function Register() {
 
   useEffect(() => {
     if (user) navigate('/home');
-  }, [user, loading, navigate]);
+  }, [user, navigate]);
 
   if (loading) {
     return <div>{t('loading')}</div>;
@@ -133,7 +133,10 @@ function Register() {
       </button>
       <div>
         {t('registerPage.yesProfile')}{' '}
-        <Link to="/login">{t('authorization.login')}</Link> {t('now')}.
+        <Link to="/login" className={styles.link}>
+          {t('authorization.login')}
+        </Link>{' '}
+        {t('now')}.
       </div>
     </div>
   );

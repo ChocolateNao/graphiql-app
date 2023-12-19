@@ -13,7 +13,7 @@ function WelcomePage() {
 
   if (loading) return <div>{t('loading')}</div>;
   return (
-    <>
+    <div className={styles.welcome}>
       <nav className={styles.navigation}>
         <LanguageSelect />
         {user ? (
@@ -34,7 +34,7 @@ function WelcomePage() {
       <div className={styles.title}>
         {t('welcomePage.welcome', { name: user ? user.email : 'stranger' })}
       </div>
-    </>
+    </div>
   );
 }
 
