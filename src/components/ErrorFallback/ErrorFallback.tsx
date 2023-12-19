@@ -1,17 +1,19 @@
+import { useLocalization } from 'shared/context/LocalizationContext';
+
 import styles from './ErrorFallback.module.scss';
 
 function ErrorFallback() {
+  const { t } = useLocalization();
   return (
     <div className={styles.errorboundary}>
       <h1 className={styles.errorboundary__header}>
-        Oopsie Woopsie! Something went wrong.
+        {t('errorPage.errorFallback.header')}
       </h1>
       <p className={styles.errorboundary__text}>
-        You can try to refresh the page or simply click the button here that
-        will do it for you.
+        {t('errorPage.errorFallback.text')}
       </p>
       <button type="button" onClick={() => window.location.reload()}>
-        Reload page
+        {t('errorPage.errorFallback.reload')}
       </button>
     </div>
   );

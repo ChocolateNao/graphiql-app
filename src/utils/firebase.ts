@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 import { FirebaseError, initializeApp } from 'firebase/app';
 import {
+  confirmPasswordReset,
   createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
@@ -99,9 +100,15 @@ const registerWithEmailAndPassword = async (
     }
   }
 };
+
+const actionCodeSettings = {
+  url: 'http://localhost:5173/password-update',
+  handleCodeInApp: false,
+};
+
 const sendPasswordReset = async (email: string) => {
   try {
-    await sendPasswordResetEmail(auth, email);
+    await sendPasswordResetEmail(auth, email, actionCodeSettings);
     toast.success('Password reset link sent!');
   } catch (err: unknown) {
     if (err instanceof FirebaseError) {
@@ -109,6 +116,22 @@ const sendPasswordReset = async (email: string) => {
     }
   }
 };
+
+async function resetPassword(
+  actionCode: string,
+  newPassword: string,
+  navigate: (path: string) => void
+) {
+  try {
+    await confirmPasswordReset(auth, actionCode, newPassword);
+    toast.success('Password update!');
+    navigate('/login');
+  } catch (err) {
+    if (err instanceof FirebaseError) {
+      toast.error(err.message);
+    }
+  }
+}
 const logout = () => {
   signOut(auth);
 };
@@ -118,6 +141,7 @@ export {
   logInWithEmailAndPassword,
   logout,
   registerWithEmailAndPassword,
+  resetPassword,
   sendPasswordReset,
   signInWithGoogle,
 };

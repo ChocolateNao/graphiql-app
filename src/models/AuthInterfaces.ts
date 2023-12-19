@@ -13,3 +13,8 @@ export interface FormLogin {
 export interface FormReset {
   email: string;
 }
+
+export interface FormPassword {
+  password: string;
+  confirmPassword: string;
+}

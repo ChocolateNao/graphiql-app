@@ -3,8 +3,8 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/src/tests/mock/fileMock.js',
-    '\\.(css|less|scss)$': '<rootDir>/src/tests/mock/styleMock.js',
+      '<rootDir>/tests/mock/fileMock.js',
+    '\\.(css|less|scss)$': '<rootDir>/tests/mock/styleMock.js',
     '^components/(.*)$': '<rootDir>/src/components/$1',
     '^layouts/(.*)$': '<rootDir>/src/layouts/$1',
     '^ui/(.*)$': '<rootDir>/src/components/ui/$1',
@@ -17,7 +17,7 @@ module.exports = {
     '^hooks/(.*)$': '<rootDir>/src/hooks/$1',
     '^utils/(.*)$': '<rootDir>/src/utils/$1',
   },
-  setupFilesAfterEnv: ['<rootDir>/src/tests/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/tests/setupTests.ts'],
   coverageThreshold: {
     global: {
       statements: 80,
@@ -27,7 +27,7 @@ module.exports = {
     'src/**/*.ts',
     'src/**/*.tsx',
     '!src/main.tsx',
-    '!src/tests/mock/*.ts',
+    '!tests/mock/*.ts',
   ],
   coverageReporters: ['text'],
 };
