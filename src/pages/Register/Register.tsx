@@ -133,7 +133,10 @@ function Register() {
       </button>
       <div>
         {t('registerPage.yesProfile')}{' '}
-        <Link to="/login">{t('authorization.login')}</Link> {t('now')}.
+        <Link to="/login" className={styles.link}>
+          {t('authorization.login')}
+        </Link>{' '}
+        {t('now')}.
       </div>
     </div>
   );
