@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  margin: 20px auto;
+  margin: 20px auto 231px;
 }
 
 .title {
@@ -83,4 +83,8 @@ label {
   .label {
     margin-bottom: 0;
   }
+}
+
+.link {
+  color: #535bf2;
 }
