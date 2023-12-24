@@ -14,10 +14,20 @@ function MainPage() {
   const [response, setResponse] = useState('');
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isButtonVariablesClicked, setIsButtonVariablesClicked] =
+    useState(false);
+  const [isButtonHeadersClicked, setIsButtonHeadersClicked] = useState(false);
   const { t } = useLocalization();
 
   const handleClick = (component: string) => {
     setActiveComponent(component);
+    if (component === 'Variables') {
+      setIsButtonVariablesClicked(true);
+      setIsButtonHeadersClicked(false);
+    } else {
+      setIsButtonVariablesClicked(false);
+      setIsButtonHeadersClicked(true);
+    }
   };
 
   const handleRequest = async () => {
@@ -48,6 +58,8 @@ function MainPage() {
     setIsPanelOpen(!isPanelOpen);
     if (isPanelOpen) {
       setActiveComponent(null);
+      setIsButtonVariablesClicked(false);
+      setIsButtonHeadersClicked(false);
     }
   };
 
@@ -102,6 +114,7 @@ function MainPage() {
           <div className={styles.btn_wrapper}>
             <div className={styles.buttons}>
               <button
+                className={`${isButtonVariablesClicked ? styles.active : ''}`}
                 type="button"
                 aria-label="Variables"
                 onClick={() => handleClick('Variables')}
@@ -111,6 +124,7 @@ function MainPage() {
               </button>
               <button
                 type="button"
+                className={`${isButtonHeadersClicked ? styles.active : ''}`}
                 aria-label="Headers"
                 onClick={() => handleClick('Headers')}
                 disabled={!isPanelOpen}

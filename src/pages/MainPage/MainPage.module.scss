@@ -141,6 +141,10 @@
   }
 }
 
+.active {
+  color: #62ab00;
+}
+
 @media (max-width: 600px) {
   .dashboard__wrapper {
     grid-template-columns: 1fr;
