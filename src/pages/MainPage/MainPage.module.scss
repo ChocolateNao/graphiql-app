@@ -12,6 +12,7 @@
 
 .dashboard__textarea {
   @extend %custom-scroll;
+  width: 90%;
 }
 
 .dashboard__endpoint_input {
@@ -21,11 +22,12 @@
 }
 
 .dashboard__run_btn {
+  color: #333;
   background-image: url('/run.png');
   background-size: cover;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   @extend %transition;
 }
 
@@ -33,13 +35,45 @@
   background-color: #bebdbd;
 }
 
+.magic {
+  color: #333;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  &:before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f044';
+    margin-left: 5%;
+    font-size: 35px;
+  }
+  &:after {
+    content: 'Prettify query';
+    position: absolute;
+    display: none;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    z-index: 1;
+  }
+
+  &:hover:after {
+    display: block;
+  }
+}
+
 .dashboard__wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 70% 30%;
+  grid-template-rows: 93% 7%;
   height: 90vh;
   gap: 15px;
   padding: 15px;
+}
+
+.add_grid {
+  grid-template-rows: 70% 30%;
 }
 
 .cell1 {
@@ -69,13 +103,40 @@
   .btn_wrapper {
     padding-bottom: 15px;
     display: flex;
-    gap: 10px;
-    & > * {
-      @extend %transition;
-      font-weight: 600;
+    justify-content: space-between;
+    .buttons {
+      display: flex;
+      gap: 15px;
+      & > * {
+        @extend %transition;
+        font-weight: 600;
+      }
+      & > *:hover {
+        color: #62ab00;
+      }
+      & > *:disabled:hover {
+        color: #333;
+        cursor: default;
+      }
     }
-    & > *:hover {
-      color: #62ab00;
+    .open_button {
+      align-self: flex-end;
+      @extend %transition;
+      &:before {
+        font-family: 'Font Awesome 5 Free';
+        content: '\f062';
+        font-weight: 900;
+      }
+      &:hover {
+        color: #62ab00;
+      }
+    }
+    .close_button {
+      &:before {
+        font-family: 'Font Awesome 5 Free';
+        content: '\f063';
+        font-weight: 900;
+      }
     }
   }
 }

@@ -50,7 +50,11 @@ function HomeLayout() {
                 {t('navigation.welcome')}
               </NavLink>
               <LanguageSelect />
-              <button type="button" onClick={logout}>
+              <button
+                className={styles.link_logout}
+                type="button"
+                onClick={logout}
+              >
                 {t('authorization.logout')}
               </button>
             </>
