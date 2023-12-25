@@ -18,9 +18,13 @@ const endpointSlice = createSlice({
     setIsConnected: (state, action: PayloadAction<boolean>) => {
       state.isConnected = action.payload;
     },
-    setTakenSchema: (state, action: PayloadAction<GraphQLSchema>) => {
+    setTakenSchema: (state, action: PayloadAction<GraphQLSchema | null>) => {
       if (action.payload) state.takenSchema = action.payload;
       state.isConnected = true;
+    },
+    resetTakenSchema: (state) => {
+      state.takenSchema = null;
+      state.isConnected = false;
     },
   },
 });

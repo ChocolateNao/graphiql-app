@@ -1,29 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useActions } from 'hooks/redux-hooks';
+import { useDebounce } from 'use-debounce';
 
 import { useLocalization } from 'shared/context/LocalizationContext';
-import makeGraphQLRequest, {
-  makeGraphQLPreflightLong,
-} from 'utils/graphql-request';
+import { useCachedPreflightQuery } from 'utils/graphql-connect';
+import makeGraphQLRequest from 'utils/graphql-request';
 
 import styles from './MainPage.module.scss';
 
 function MainPage() {
-  const [endpoint, setEndpoint] = useState(
-    'https://rickandmortyapi.com/graphql'
-  );
+  const [endpoint, setEndpoint] = useState('');
   const [request, setRequest] = useState('');
   const [response, setResponse] = useState('');
+  const [endpointDebounce] = useDebounce(endpoint, 1000);
 
-  const { setTakenSchema } = useActions();
+  const { setTakenSchema, resetTakenSchema } = useActions();
 
   const { t } = useLocalization();
+  const { data, isFetching, isError, isSuccess } =
+    useCachedPreflightQuery(endpointDebounce);
 
   const handleRequest = async () => {
     const res = await makeGraphQLRequest(endpoint, request);
     setResponse(JSON.stringify(res, null, 2));
-    const preflight = await makeGraphQLPreflightLong(endpoint);
-    setTakenSchema(preflight);
   };
   const handleRequestFieldChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
@@ -35,10 +34,18 @@ function MainPage() {
     const { value } = event.target;
     setEndpoint(value);
   };
+  useEffect(() => {
+    if (isSuccess) setTakenSchema(data);
+    else if (isError) resetTakenSchema();
+  }, [data, isError, isSuccess, resetTakenSchema, setTakenSchema]);
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__endpoint_wrapper}>
-        <label htmlFor="api-endpoint">
+        <label
+          htmlFor="api-endpoint"
+          className={styles.dashboard__endpoint_label}
+        >
           {t('mainPage.lables.endpoint')}
           <input
             name="api-endpoint"
@@ -49,6 +56,9 @@ function MainPage() {
             onChange={handleEndpointChange}
           />
         </label>
+        {isSuccess && <span>✔️</span>}
+        {isError && <span>❌</span>}
+        {isFetching && <span>⚠️</span>}
       </div>
       <div className={styles.dashboard__wrapper}>
         <div className={styles.dashboard__container}>

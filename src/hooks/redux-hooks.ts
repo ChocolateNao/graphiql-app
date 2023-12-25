@@ -3,7 +3,7 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 
 import { RootState } from 'shared/store/store';
 
-import { endpointActions } from '../shared/store/endpointSlice';
+import { endpointActions } from '../shared/store/reducers/endpointSlice';
 
 const actions = {
   ...endpointActions,

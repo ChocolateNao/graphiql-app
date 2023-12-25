@@ -1,3 +1,4 @@
+@import '../../App.scss';
 .dashboard {
   height: calc(100vh - 56px);
   width: 100vw;
@@ -11,14 +12,20 @@
 .dashboard__endpoint_wrapper {
   width: 100%;
   background-color: #dcdcdc;
-  padding: 5px;
-  padding-left: 30px;
+  padding: 5px 10px 5px 30px;
   text-align: start;
+  display: inline-flex;
+  align-items: center;
 }
 .dashboard__endpoint_input {
   margin-left: 20px;
   padding: 5px;
   width: 80%;
+}
+.dashboard__endpoint_label {
+  margin-right: auto;
+  width: 90%;
+  color: --color-red;
 }
 .dashboard__wrapper {
   width: 100%;
