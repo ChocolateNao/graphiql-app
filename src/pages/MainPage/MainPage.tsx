@@ -4,7 +4,7 @@ import Headers from 'components/Headers';
 import Variables from 'components/Variables';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import makeGraphQLRequest from 'utils/graphql-request';
-import { formatQuery, formatWords, isCodeValid } from 'utils/prettify';
+import { formatQuery, isCodeValid } from 'utils/prettify';
 
 import styles from './MainPage.module.scss';
 
@@ -49,8 +49,7 @@ function MainPage() {
     if (!isCodeValid(request)) {
       setRequest('');
     } else {
-      const res = formatWords(request);
-      setRequest(formatQuery(res));
+      setRequest(formatQuery(request));
     }
   };
 

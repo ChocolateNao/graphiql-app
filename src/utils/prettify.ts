@@ -1,3 +1,4 @@
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 export function isCodeValid(code: string) {
   let balance = 0;
   for (let i = 0; i < code.length; i += 1) {
@@ -13,45 +14,38 @@ export function isCodeValid(code: string) {
   return balance === 0;
 }
 
-export function formatCode(userInput: string) {
-  let indentLevel = 0;
+function formatBracesAndColons(str: string) {
   let formattedCode = '';
-  for (let i = 0; i < userInput.length; i += 1) {
-    if (userInput[i] === '{') {
-      formattedCode += ` ${userInput[i]}\n`;
-      indentLevel += 1;
-      formattedCode += '  '.repeat(Math.max(0, indentLevel));
-    } else if (userInput[i] === '}') {
-      indentLevel -= 1;
-      formattedCode += `\n${'  '.repeat(Math.max(0, indentLevel))}${
-        userInput[i]
-      }`;
-    } else if (
-      userInput[i - 1] &&
-      userInput[i] !== ' ' &&
-      userInput[i] !== '\n' &&
-      userInput[i - 1] === '}'
-    ) {
-      formattedCode += `\n${userInput[i]}`;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === '{') {
+      formattedCode += ` ${str[i]}\n`;
+    } else if (str[i] === '}') {
+      formattedCode += `\n${str[i]}`;
+    } else if (str[i] === ':') {
+      formattedCode += `${str[i]} `;
     } else {
-      formattedCode += userInput[i];
+      formattedCode += str[i];
     }
   }
   return formattedCode;
 }
 
-export function formatWords(str: string) {
+function formatTextWithCode(str: string) {
   const words = str.split(/[\s\n]+/);
   let result = '';
   for (let i = 0; i < words.length; i += 1) {
     const lastChar = result[result.length - 1];
-    const code = formatCode(words[i]);
-    if (
+    const code = formatBracesAndColons(words[i]);
+    if (lastChar && alphabet.includes(lastChar) && alphabet.includes(code[0])) {
+      if (result === 'query') {
+        result += ` ${code}`;
+      } else {
+        result += `\n${code}`;
+      }
+    } else if (
       lastChar &&
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.includes(
-        lastChar
-      ) &&
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.includes(code[0])
+      '}'.includes(lastChar) &&
+      alphabet.includes(code[0])
     ) {
       result += `\n${code}`;
     } else {
@@ -62,7 +56,8 @@ export function formatWords(str: string) {
 }
 
 export function formatQuery(query: string) {
-  const lines = query.split('\n');
+  const res = formatTextWithCode(query);
+  const lines = res.split('\n');
   let formattedQuery = '';
   let indentLevel = 0;
   for (let i = 0; i < lines.length; i += 1) {
