@@ -4,7 +4,7 @@ function Headers() {
   return (
     <textarea
       className={styles.headers__textarea}
-      placeholder="Enter  Headers"
+      placeholder="Enter headers"
     />
   );
 }
