@@ -4,10 +4,12 @@ import { GraphQLSchema } from 'models/GraphQLSchema.interface';
 
 interface EndpointState {
   isConnected: boolean;
+  url: string;
   takenSchema: GraphQLSchema | null;
 }
 const initialState: EndpointState = {
   isConnected: false,
+  url: '',
   takenSchema: null,
 };
 
@@ -18,13 +20,17 @@ const endpointSlice = createSlice({
     setIsConnected: (state, action: PayloadAction<boolean>) => {
       state.isConnected = action.payload;
     },
+    setUrl: (state, action: PayloadAction<string>) => {
+      state.url = action.payload;
+      state.isConnected = true;
+    },
     setTakenSchema: (state, action: PayloadAction<GraphQLSchema | null>) => {
       if (action.payload) state.takenSchema = action.payload;
       state.isConnected = true;
     },
     resetTakenSchema: (state) => {
-      state.takenSchema = null;
       state.isConnected = false;
+      state.takenSchema = null;
     },
   },
 });
