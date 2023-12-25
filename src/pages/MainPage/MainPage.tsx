@@ -77,71 +77,80 @@ function MainPage() {
           />
         </label>
       </div>
-      <div
-        className={`${styles.dashboard__wrapper} ${
-          isPanelOpen ? styles.add_grid : ''
-        }`}
-      >
-        <div className={styles.cell1}>
-          <textarea
-            className={styles.dashboard__textarea}
-            placeholder={t('placeholders.code')}
-            value={request}
-            onChange={handleRequestFieldChange}
-          />
-          <div>
-            <button
-              className={styles.dashboard__run_btn}
-              type="button"
-              aria-label="run-button"
-              onClick={handleRequest}
+
+      <div className={styles.wrapper}>
+        <div className={styles.cell1} />
+        <div className={styles.dashboard__wrapper}>
+          <div
+            className={`${styles.cell2} ${
+              isPanelOpen ? styles.remove_height : styles.height1
+            }`}
+          >
+            <textarea
+              className={styles.dashboard__textarea}
+              placeholder={t('placeholders.code')}
+              value={request}
+              onChange={handleRequestFieldChange}
             />
-            <button
-              type="button"
-              className={styles.magic}
-              aria-label="magic-button"
-              onClick={handlePrettify}
-            />
+            <div>
+              <button
+                className={styles.dashboard__run_btn}
+                type="button"
+                aria-label="run-button"
+                onClick={handleRequest}
+              />
+              <button
+                type="button"
+                className={styles.magic}
+                aria-label="magic-button"
+                onClick={handlePrettify}
+              />
+            </div>
+          </div>
+
+          <div
+            className={`${styles.cell3} ${
+              isPanelOpen ? styles.add_height : styles.height2
+            }`}
+          >
+            <div className={styles.btn_wrapper}>
+              <div className={styles.buttons}>
+                <button
+                  className={`${isButtonVariablesClicked ? styles.active : ''}`}
+                  type="button"
+                  aria-label="Variables"
+                  onClick={() => handleClick('Variables')}
+                  disabled={!isPanelOpen}
+                >
+                  Variables
+                </button>
+                <button
+                  type="button"
+                  className={`${isButtonHeadersClicked ? styles.active : ''}`}
+                  aria-label="Headers"
+                  onClick={() => handleClick('Headers')}
+                  disabled={!isPanelOpen}
+                >
+                  Headers
+                </button>
+              </div>
+              <button
+                type="button"
+                aria-label="open_button"
+                className={`${styles.open_button} ${
+                  isPanelOpen ? styles.close_button : ''
+                }`}
+                onClick={handleButtonClick}
+              />
+            </div>
+            {activeComponent === 'Variables' && <Variables />}
+            {activeComponent === 'Headers' && <Headers />}
           </div>
         </div>
-        <div className={styles.cell2}>
+        <div className={styles.cell4}>
           <pre>
             <span>{response}</span>
           </pre>
-        </div>
-        <div className={styles.cell3}>
-          <div className={styles.btn_wrapper}>
-            <div className={styles.buttons}>
-              <button
-                className={`${isButtonVariablesClicked ? styles.active : ''}`}
-                type="button"
-                aria-label="Variables"
-                onClick={() => handleClick('Variables')}
-                disabled={!isPanelOpen}
-              >
-                Variables
-              </button>
-              <button
-                type="button"
-                className={`${isButtonHeadersClicked ? styles.active : ''}`}
-                aria-label="Headers"
-                onClick={() => handleClick('Headers')}
-                disabled={!isPanelOpen}
-              >
-                Headers
-              </button>
-            </div>
-            <button
-              type="button"
-              aria-label="open_button"
-              className={`${styles.open_button} ${
-                isPanelOpen ? styles.close_button : ''
-              }`}
-              onClick={handleButtonClick}
-            />
-          </div>
-          {activeComponent === 'Variables' && <Variables />}
-          {activeComponent === 'Headers' && <Headers />}
         </div>
       </div>
     </div>
