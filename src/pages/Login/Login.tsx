@@ -97,11 +97,16 @@ function Login() {
         {t('authorization.loginGoogle')}
       </button>
       <div>
-        <Link to="/reset">{t('authorization.passwordForgot')}</Link>
+        <Link to="/reset" className={styles.link}>
+          {t('authorization.passwordForgot')}
+        </Link>
       </div>
       <div>
         {t('loginPage.noProfile')}{' '}
-        <Link to="/register">{t('authorization.register')}</Link> {t('now')}.
+        <Link to="/register" className={styles.link}>
+          {t('authorization.register')}
+        </Link>{' '}
+        {t('now')}.
       </div>
     </div>
   );
