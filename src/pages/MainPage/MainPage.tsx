@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useActions } from 'hooks/redux-hooks';
 
 import { useLocalization } from 'shared/context/LocalizationContext';
-import makeGraphQLRequest from 'utils/graphql-request';
+import makeGraphQLRequest, {
+  makeGraphQLPreflightLong,
+} from 'utils/graphql-request';
 
 import styles from './MainPage.module.scss';
 
@@ -12,11 +15,15 @@ function MainPage() {
   const [request, setRequest] = useState('');
   const [response, setResponse] = useState('');
 
+  const { setTakenSchema } = useActions();
+
   const { t } = useLocalization();
 
   const handleRequest = async () => {
     const res = await makeGraphQLRequest(endpoint, request);
     setResponse(JSON.stringify(res, null, 2));
+    const preflight = await makeGraphQLPreflightLong(endpoint);
+    setTakenSchema(preflight);
   };
   const handleRequestFieldChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
