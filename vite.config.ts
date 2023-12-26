@@ -20,4 +20,15 @@ export default defineConfig({
     },
   },
   plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/assets/sass/abstract/placeholders.scss";
+          @import "./src/assets/sass/abstract/constants.scss";
+          @import "./src/assets/sass/abstract/mixins.scss";
+        `,
+      },
+    },
+  },
 });

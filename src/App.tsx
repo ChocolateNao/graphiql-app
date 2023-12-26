@@ -7,7 +7,6 @@ import {
 import { ToastContainer } from 'react-toastify';
 
 import ErrorFallback from 'components/ErrorFallback';
-import HomeLayout from 'layouts/HomeLayout';
 import RootLayout from 'layouts/RootLayout';
 import Login from 'pages/Login';
 import MainPage from 'pages/MainPage';
@@ -27,9 +26,7 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="reset" element={<Reset />} />
       <Route path="password-update" element={<PasswordUpdate />} />
-      <Route path="home" element={<HomeLayout />}>
-        <Route index element={<MainPage />} />
-      </Route>
+      <Route path="home" element={<MainPage />} />
     </Route>
   )
 );

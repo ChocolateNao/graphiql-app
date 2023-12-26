@@ -1,5 +1,10 @@
 .welcome {
-  height: 84.4vh;
+  background-color: $color-background-secondary3;
+  background-image: url('./src/assets/jpg/home-bg.jpg');
+  min-height: 1285px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-top: -70px;
 }
 .navigation {
   display: flex;
@@ -14,6 +19,85 @@
     }
   }
 }
+
+.welcome_top {
+  display: flex;
+  padding-left: 4.3rem;
+  padding-right: 7.2rem;
+  justify-content: space-between;
+}
+
+.welcome_top_left {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20.5rem;
+  align-items: center;
+  max-width: 78.7rem;
+}
+
 .title {
-  font-size: 2.4rem;
+  @extend %font-prim;
+  font-size: 6.5rem;
+  padding-bottom: 10.2rem;
+  text-align: center;
+}
+
+.subtitle {
+  @extend %font-prim;
+  font-size: 4rem;
+  padding-bottom: 7.6rem;
+  text-align: center;
+  max-width: 654px;
+}
+.buttons {
+  display: flex;
+  gap: 6.2rem;
+}
+
+.link {
+  padding-top: 2.05rem;
+  padding-bottom: 2.05rem;
+  width: 24.4rem;
+  background: $color-primary;
+  border-radius: 4px;
+  font-size: 4rem;
+  cursor: pointer;
+  text-align: center;
+  @extend %transition;
+  &:hover {
+    background: $color-hovered;
+  }
+}
+
+.welcome_top_right {
+  max-width: 78.7rem;
+  padding-top: 16.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7.7rem;
+}
+
+.welcome_top_right_title {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.8rem;
+  margin: auto;
+  text-align: center;
+  gap: 2.4rem;
+}
+
+.query {
+  width: 421px;
+  height: 369px;
+}
+
+.response {
+  width: 498px;
+  height: 221px;
+  margin: auto;
+}
+
+.welcome_top_right_top {
+  display: flex;
+  gap: 4.2rem;
 }

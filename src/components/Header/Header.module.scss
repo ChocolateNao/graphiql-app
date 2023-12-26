@@ -1,0 +1,76 @@
+header {
+  background: $color-background-secondary;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  transition: height 0.5s;
+  height: 85px;
+  z-index: 1;
+}
+
+.shrink {
+  transition: height 0.5s;
+  height: 65px;
+}
+
+.welcome {
+  font-size: 2.8rem;
+  cursor: pointer;
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.home {
+  font-size: 2.8rem;
+  cursor: pointer;
+  &:hover {
+    color: $color-primary;
+  }
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4.2rem;
+  align-items: center;
+  height: 100%;
+}
+
+.navigation_left {
+  display: flex;
+  gap: 2.3rem;
+  align-items: center;
+}
+.navigation_right {
+  display: flex;
+  gap: 23rem;
+  align-items: center;
+}
+.buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.link {
+  padding-top: 0.95rem;
+  padding-bottom: 0.95rem;
+  text-align: center;
+  background: $color-primary;
+  border-radius: 4px;
+  font-size: 1.8rem;
+  width: 111px;
+  @extend %font-add;
+  cursor: pointer;
+  @extend %transition;
+  &:hover {
+    background: $color-hovered;
+  }
+}
+
+.logout {
+  width: 140px;
+}

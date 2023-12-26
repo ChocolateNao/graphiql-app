@@ -1,23 +1,32 @@
 .logo {
-  width: 70px;
+  width: 120px;
   height: auto;
 }
 
 .footer {
-  background-color: #333;
+  font-size: 2.4rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   gap: 5px;
-  padding: 30px 0;
-  color: #ffffff;
+  padding: 3rem 3rem;
   text-align: center;
+  background: $color-background-secondary;
 }
 
 a {
-  color: #ffffff;
-  transition: all 0.5s ease;
+  @extend %transition;
+  color: $color-text;
 }
 
 .wrapper_logo {
   padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer_github {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }

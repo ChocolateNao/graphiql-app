@@ -3,8 +3,7 @@
   "select": "Select",
   "now": "now",
   "settings": {
-    "changeLocale": "Change language",
-    "currentLocale": "Current"
+    "currentLocale": "en"
   },
   "authorization": {
     "login": "Log In",
