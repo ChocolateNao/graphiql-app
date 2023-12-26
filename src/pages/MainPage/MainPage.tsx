@@ -1,17 +1,22 @@
 import { useState } from 'react';
+import { useAppSelector } from 'hooks/redux-hooks';
 
 import Headers from 'components/Headers';
+import MainEndpointInput from 'components/MainEndpointInput/MainEndpointInput';
 import Variables from 'components/Variables';
 import { useLocalization } from 'shared/context/LocalizationContext';
+import { RootState } from 'shared/store/store';
 import makeGraphQLRequest from 'utils/graphql-request';
 
 import styles from './MainPage.module.scss';
 
 function MainPage() {
-  const [endpoint, setEndpoint] = useState('');
   const [request, setRequest] = useState('');
   const [response, setResponse] = useState('');
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
+
+  const endpointAction = (state: RootState) => state.endpoint.url;
+  const endpoint = useAppSelector(endpointAction);
 
   const { t } = useLocalization();
 
@@ -20,8 +25,9 @@ function MainPage() {
   };
 
   const handleRequest = async () => {
-    const res = await makeGraphQLRequest(endpoint, request);
-    setResponse(JSON.stringify(res, null, 2));
+    makeGraphQLRequest(endpoint, request)
+      .then((res) => setResponse(JSON.stringify(res, null, 2)))
+      .catch((err: Error) => setResponse(JSON.stringify(err.message, null, 2)));
   };
   const handleRequestFieldChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
@@ -29,24 +35,11 @@ function MainPage() {
     const { value } = event.target;
     setRequest(value);
   };
-  const handleEndpointChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setEndpoint(value);
-  };
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__endpoint_wrapper}>
-        <label htmlFor="api-endpoint">
-          {t('mainPage.lables.endpoint')}
-          <input
-            name="api-endpoint"
-            id="api-endpoint"
-            type="text"
-            placeholder={t('placeholders.endpoint')}
-            className={styles.dashboard__endpoint_input}
-            onChange={handleEndpointChange}
-          />
-        </label>
+        <MainEndpointInput />
       </div>
       <div className={styles.dashboard__wrapper}>
         <div className={styles.cell1}>
