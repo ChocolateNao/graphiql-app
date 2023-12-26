@@ -13,7 +13,7 @@ module.exports = {
     '^assets/(.*)$': '<rootDir>/src/assets/$1',
     '^models/(.*)$': '<rootDir>/src/models/$1',
     '^shared/(.*)$': '<rootDir>/src/shared/$1',
-    '^store/(.*)$': '<rootDir>/src/store/$1',
+    '^store/(.*)$': '<rootDir>/src/shared/store/$1',
     '^hooks/(.*)$': '<rootDir>/src/hooks/$1',
     '^utils/(.*)$': '<rootDir>/src/utils/$1',
   },

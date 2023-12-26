@@ -18,6 +18,7 @@ function HomeLayout() {
   };
 
   const { t } = useLocalization();
+
   useEffect(() => {
     window.addEventListener('scroll', checkScrollTop);
     return () => {

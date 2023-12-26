@@ -25,12 +25,12 @@
       "assets/*": ["./src/assets/*"],
       "models/*": ["./src/models/*"],
       "shared/*": ["./src/shared/*"],
-      "store/*": ["./src/store/*"],
+      "store/*": ["./src/shared/store/*"],
       "hooks/*": ["./src/hooks/*"],
       "utils/*": ["./src/utils/*"],
       "layouts/*": ["./src/layouts/*"]
     }
   },
-  "include": ["src", "tests", "tests/mock"],
+  "include": ["src", "tests"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

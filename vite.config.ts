@@ -14,7 +14,7 @@ export default defineConfig({
       assets: path.resolve(__dirname, './src/assets'),
       models: path.resolve(__dirname, './src/models'),
       shared: path.resolve(__dirname, './src/shared'),
-      store: path.resolve(__dirname, './src/store'),
+      store: path.resolve(__dirname, './src/shared/store'),
       hooks: path.resolve(__dirname, './src/hooks'),
       utils: path.resolve(__dirname, './src/utils'),
     },
