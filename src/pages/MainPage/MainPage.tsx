@@ -7,6 +7,7 @@ import Variables from 'components/Variables';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import { RootState } from 'shared/store/store';
 import makeGraphQLRequest from 'utils/graphql-request';
+import { formatQuery, isCodeValid } from 'utils/prettify';
 
 import styles from './MainPage.module.scss';
 
@@ -14,6 +15,10 @@ function MainPage() {
   const [request, setRequest] = useState('');
   const [response, setResponse] = useState('');
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isButtonVariablesClicked, setIsButtonVariablesClicked] =
+    useState(false);
+  const [isButtonHeadersClicked, setIsButtonHeadersClicked] = useState(false);
 
   const endpointAction = (state: RootState) => state.endpoint.url;
   const endpoint = useAppSelector(endpointAction);
@@ -22,6 +27,22 @@ function MainPage() {
 
   const handleClick = (component: string) => {
     setActiveComponent(component);
+    if (component === 'Variables') {
+      setIsButtonVariablesClicked(true);
+      setIsButtonHeadersClicked(false);
+    } else {
+      setIsButtonVariablesClicked(false);
+      setIsButtonHeadersClicked(true);
+    }
+  };
+
+  const handleButtonClick = () => {
+    setIsPanelOpen(!isPanelOpen);
+    if (isPanelOpen) {
+      setActiveComponent(null);
+      setIsButtonVariablesClicked(false);
+      setIsButtonHeadersClicked(false);
+    }
   };
 
   const handleRequest = async () => {
@@ -36,6 +57,14 @@ function MainPage() {
     setRequest(value);
   };
 
+  const handlePrettify = () => {
+    if (!isCodeValid(request)) {
+      setRequest('');
+    } else {
+      setRequest(formatQuery(request));
+    }
+  };
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__endpoint_wrapper}>
@@ -46,10 +75,15 @@ function MainPage() {
           <div className={styles.icon_doc} />
         </div>
         <div className={styles.column2}>
-          <div className={styles.row1}>
+          <div
+            className={`${styles.row1} ${
+              isPanelOpen ? styles.remove_height : styles.height_row1
+            }`}
+          >
             <textarea
               className={styles.dashboard__textarea}
               placeholder={t('placeholders.code')}
+              value={request}
               onChange={handleRequestFieldChange}
             />
             <div className={styles.dashboard__buttons}>
@@ -59,19 +93,35 @@ function MainPage() {
                 aria-label="run-button"
                 onClick={handleRequest}
               />
-              <div
+              <button
                 className={styles.dashboard__prettify_btn}
-                // onClick={handlePrettify}
+                type="button"
+                aria-label="run-prettify"
+                onClick={handlePrettify}
               />
             </div>
           </div>
-          <div className={styles.row2}>
+          <div
+            className={`${styles.row2} ${
+              isPanelOpen ? styles.add_height : styles.height_row2
+            }`}
+          >
             <div className={styles.row2_wrapper}>
               <div className={styles.btn_wrapper}>
-                <button type="button" onClick={() => handleClick('Variables')}>
+                <button
+                  className={`${isButtonVariablesClicked ? styles.active : ''}`}
+                  type="button"
+                  onClick={() => handleClick('Variables')}
+                  disabled={!isPanelOpen}
+                >
                   Variables
                 </button>
-                <button type="button" onClick={() => handleClick('Headers')}>
+                <button
+                  className={`${isButtonHeadersClicked ? styles.active : ''}`}
+                  type="button"
+                  onClick={() => handleClick('Headers')}
+                  disabled={!isPanelOpen}
+                >
                   Headers
                 </button>
               </div>
@@ -79,7 +129,14 @@ function MainPage() {
               {activeComponent === 'Headers' && <Headers />}
             </div>
 
-            <div className={styles.arrow_open} />
+            <button
+              className={`${styles.close_button} ${
+                isPanelOpen ? styles.open_button : ''
+              }`}
+              type="button"
+              aria-label="button-close-open"
+              onClick={handleButtonClick}
+            />
           </div>
         </div>
 

@@ -91,7 +91,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  flex-grow: 0.4;
+  width: 45%;
   border-radius: 1rem;
   background: $color-background-main;
   .row1 {
@@ -103,10 +103,6 @@
     background-color: $color-background-secondary;
     color: $color-text-query;
     font-size: 2rem;
-    height: 74vh;
-    @include media-tablet {
-      height: 50vh;
-    }
   }
   .row2 {
     border-bottom-left-radius: 1rem;
@@ -115,12 +111,16 @@
     display: flex;
     justify-content: space-between;
     background: $color-background-secondary;
-    height: 6vh;
+
     font-size: 2rem;
+    .row2_wrapper {
+      width: 90%;
+    }
     .btn_wrapper {
       display: flex;
       gap: 4.5rem;
       color: $color-input-text;
+      padding-bottom: 1rem;
       & > * {
         @extend %transition;
         cursor: pointer;
@@ -130,8 +130,19 @@
       & > *:hover {
         background: $color-background-secondary3;
       }
+      & > *:disabled:hover {
+        background: $color-background-secondary;
+        cursor: default;
+      }
     }
   }
+  @include media-tablet {
+    width: auto;
+  }
+}
+
+.active {
+  background: $color-background-secondary3;
 }
 
 .column3 {
@@ -140,7 +151,7 @@
   overflow-y: auto;
   @extend %custom-scroll;
   background-color: $color-background-secondary;
-  flex-grow: 1;
+  width: 55%;
   .title {
     font-size: 2.8rem;
     padding-bottom: 2.5rem;
@@ -151,13 +162,40 @@
   }
   @include media-tablet {
     height: 50vh;
+    width: auto;
   }
 }
 
-.arrow_open {
-  background-image: url('./src/assets/png/arow-close.png');
+.close_button {
+  background-image: url('./src/assets/png/arrow-down.png');
   width: 2.5rem;
   height: 2.5rem;
   background-size: cover;
   cursor: pointer;
+}
+
+.open_button {
+  background-image: url('./src/assets/png/arrow-up.png');
+}
+
+.height_row1 {
+  height: 73vh;
+  @include media-tablet {
+    height: 50vh;
+  }
+}
+
+.height_row2 {
+  height: 7vh;
+}
+
+.add_height {
+  height: 25vh;
+}
+
+.remove_height {
+  height: 55vh;
+  @include media-tablet {
+    height: 50vh;
+  }
 }

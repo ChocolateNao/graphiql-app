@@ -25,6 +25,9 @@
   padding-left: 4.3rem;
   padding-right: 7.2rem;
   justify-content: space-between;
+  @include media-big-tablet {
+    flex-wrap: wrap;
+  }
 }
 
 .welcome_top_left {
@@ -33,6 +36,9 @@
   padding-top: 20.5rem;
   align-items: center;
   max-width: 78.7rem;
+  @include media-big-tablet {
+    margin: auto;
+  }
 }
 
 .title {
@@ -52,6 +58,9 @@
 .buttons {
   display: flex;
   gap: 6.2rem;
+  @include media-laptop {
+    gap: 4rem;
+  }
 }
 
 .link {
@@ -59,13 +68,17 @@
   padding-bottom: 2.05rem;
   width: 24.4rem;
   background: $color-primary;
-  border-radius: 4px;
+  border-radius: 1rem;
   font-size: 4rem;
+  @extend %font-prim;
   cursor: pointer;
   text-align: center;
   @extend %transition;
   &:hover {
     background: $color-hovered;
+  }
+  @include media-mobile {
+    width: 19.2rem;
   }
 }
 
@@ -75,6 +88,9 @@
   display: flex;
   flex-direction: column;
   gap: 7.7rem;
+  @include media-big-tablet {
+    margin: auto;
+  }
 }
 
 .welcome_top_right_title {
@@ -83,21 +99,37 @@
   font-size: 2.8rem;
   margin: auto;
   text-align: center;
-  gap: 2.4rem;
+  column-gap: 2.4rem;
+  row-gap: 2rem;
 }
 
 .query {
-  width: 421px;
-  height: 369px;
+  max-width: 42.1rem;
+  max-height: 36.9rem;
+  @include media-laptop {
+    max-width: 36.1rem;
+    max-height: 30.9rem;
+  }
+  @include media-mobile {
+    margin: auto;
+  }
 }
 
 .response {
-  width: 498px;
-  height: 221px;
+  max-width: 49.8rem;
+  max-height: 22.1rem;
   margin: auto;
+  @include media-laptop {
+    max-width: 43.8rem;
+    max-height: 36.1rem;
+  }
 }
 
 .welcome_top_right_top {
   display: flex;
   gap: 4.2rem;
+
+  @include media-mobile {
+    flex-wrap: wrap;
+  }
 }

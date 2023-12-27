@@ -47,8 +47,11 @@ header {
 }
 .navigation_right {
   display: flex;
-  gap: 23rem;
+  gap: 17rem;
   align-items: center;
+  @include media-big-tablet {
+    gap: 6rem;
+  }
 }
 .buttons {
   display: flex;
