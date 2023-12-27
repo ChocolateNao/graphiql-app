@@ -33,34 +33,38 @@ function Reset() {
   };
   return (
     <div className={styles.reset}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.reset_wrapper}>
         <h4 className={styles.title}>{t('authorization.passwordReset')}</h4>
-        <div className={styles.input_field}>
-          <label>{t('authorization.lables.email')}</label>
-          <input
-            className={styles.reset__textBox}
-            {...register('email')}
-            placeholder={t('placeholders.email')}
-          />
-          {errors.email ? (
-            <p className={styles.error}>{t(errors.email.message)}</p>
-          ) : (
-            <p className={styles.hidden}>Placeholder</p>
-          )}
-        </div>
+        <form className={styles.reset_form} onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.input_field}>
+            <label className={styles.label}>
+              {t('authorization.lables.email')}
+            </label>
+            <input
+              className={styles.reset__textBox}
+              {...register('email')}
+              placeholder={t('placeholders.email')}
+            />
+            {errors.email ? (
+              <p className={styles.error}>{t(errors.email.message)}</p>
+            ) : (
+              <p className={styles.hidden}>Placeholder</p>
+            )}
+          </div>
 
-        <input
-          type="submit"
-          className={styles.reset__btn}
-          value={t('passwordResetPage.sendResetLink')}
-        />
-      </form>
-      <div>
-        {t('loginPage.noProfile')}{' '}
-        <Link to="/register" className={styles.link}>
-          {t('authorization.register')}
-        </Link>{' '}
-        {t('now')}.
+          <input
+            type="submit"
+            className={styles.reset__btn}
+            value={t('passwordResetPage.sendResetLink')}
+          />
+        </form>
+        <div className={styles.reset_bottom}>
+          {t('loginPage.noProfile')}{' '}
+          <Link to="/register" className={styles.link}>
+            {t('authorization.register')}
+          </Link>{' '}
+          {t('now')}.
+        </div>
       </div>
     </div>
   );

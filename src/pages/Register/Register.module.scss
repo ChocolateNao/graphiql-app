@@ -1,80 +1,145 @@
 .register {
-  border: 1px solid #e3e3e3;
-  padding: 45px 20px 20px 20px;
-  text-align: left;
-  border-radius: 5px;
+  background-color: $color-background-secondary3;
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 5rem;
+  }
+  &:after {
+    content: '';
+    display: block;
+    height: 5rem;
+  }
+}
+
+.register_wrapper {
+  @extend %font-prim;
+  background-color: $color-background-secondary;
+  border: 2px solid $color-primary;
+  padding: 4.45rem 2.7rem;
+  text-align: center;
+  border-radius: 0.5px;
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  margin: 20px auto 35px;
+  max-width: 52.6rem;
+  margin: auto;
+  gap: 1.8rem;
+}
+
+.register_form {
+  @extend %font-add;
 }
 
 .title {
-  font-size: 1.5rem;
-  padding-bottom: 10px;
-  font-weight: 600;
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-size: 2.4rem;
 }
 
 .register__textBox {
-  height: 40px;
-  color: #7b7b7b;
-  font-size: 13px !important;
+  height: 6rem;
+  font-size: 1.8rem;
   display: inline-block;
-  padding: 10px 15px;
-  line-height: 30px;
+  padding: 1.9rem 2rem;
+  border-radius: 0.8rem;
   width: 100%;
-  border: 2px solid #eeeeee;
-  background: #fff;
-  border-radius: 3px;
+  background: $color-background-secondary3;
+  gap: 1.8rem;
+  &:placeholder {
+    color: $color-dark-placeholder;
+  }
 }
 
 .register__google {
-  color: #535bf2;
-  transition: all 0.5s ease;
-  font-weight: 600;
-  padding: 15px 0;
+  align-items: center;
+  @extend %transition;
+  padding: 2.05rem 5.65rem;
+  background: $color-primary;
+  border-radius: 0.8rem;
+  @extend %font-prim;
+  margin: auto;
+  font-size: 2.4rem;
 }
 .register__google:hover {
-  color: rgb(85, 26, 139);
+  background: $color-hovered;
 }
 
-label {
+.label {
   display: block;
-  font-size: 13px;
-  margin-bottom: 8px;
-  font-weight: 400;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
   text-align: left;
 }
 
 .input_field {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .register__btn {
   align-items: center;
-  font-weight: 600;
-  font-size: 15px;
-  height: 50px;
-  transition: all 0.5s ease;
-  padding: 0 50px;
-  border: 2px solid #eeeeee;
-  background: #fff;
-  border-radius: 3px;
+  @extend %transition;
+  padding: 2.05rem 5.65rem;
+  background: $color-primary !important;
+  border-radius: 0.8rem;
+  @extend %font-prim;
+  font-size: 2.4rem;
 }
 
 .register__btn:hover {
-  color: #eeeeee;
-  background-color: #535bf2;
+  background: $color-hovered !important;
 }
 
 .error {
-  font-size: 12px;
-  color: red;
+  text-align: left;
+  font-size: 1.6rem;
+  color: $color-input-error;
+  padding-top: 0.6rem;
+  padding-left: 3rem;
+  position: relative;
+  &:before {
+    content: url('./src/assets/png/Error.png');
+    position: absolute;
+    top: 0.6rem;
+    left: 0;
+  }
+}
+
+.divider {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 2.4rem;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 45%;
+    height: 2px;
+    background: $color-text;
+    vertical-align: middle;
+  }
+
+  &::before {
+    margin-right: 0.5em;
+    border-right: 1px solid;
+  }
+
+  &::after {
+    margin-left: 0.5em;
+    border-left: 1px solid;
+  }
 }
 
 .hidden {
-  font-size: 12px;
+  font-size: 1.6rem;
   visibility: hidden;
+  padding-top: 0.6rem;
 }
 
 .show_password {
@@ -86,5 +151,9 @@ label {
 }
 
 .link {
-  color: #535bf2;
+  font-size: 1.8rem;
+}
+
+.register_bottom {
+  font-size: 1.8rem;
 }
