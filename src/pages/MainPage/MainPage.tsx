@@ -42,35 +42,52 @@ function MainPage() {
         <MainEndpointInput />
       </div>
       <div className={styles.dashboard__wrapper}>
-        <div className={styles.cell1}>
-          <textarea
-            className={styles.dashboard__textarea}
-            placeholder={t('placeholders.code')}
-            onChange={handleRequestFieldChange}
-          />
-          <button
-            className={styles.dashboard__run_btn}
-            type="button"
-            aria-label="run-button"
-            onClick={handleRequest}
-          />
+        <div className={styles.column1}>
+          <div className={styles.icon_doc} />
         </div>
-        <div className={styles.cell2}>
-          <pre>
-            <span>{response}</span>
-          </pre>
-        </div>
-        <div className={styles.cell3}>
-          <div className={styles.btn_wrapper}>
-            <button type="button" onClick={() => handleClick('Variables')}>
-              Variables
-            </button>
-            <button type="button" onClick={() => handleClick('Headers')}>
-              Headers
-            </button>
+        <div className={styles.column2}>
+          <div className={styles.row1}>
+            <textarea
+              className={styles.dashboard__textarea}
+              placeholder={t('placeholders.code')}
+              onChange={handleRequestFieldChange}
+            />
+            <div className={styles.dashboard__buttons}>
+              <button
+                className={styles.dashboard__run_btn}
+                type="button"
+                aria-label="run-button"
+                onClick={handleRequest}
+              />
+              <div
+                className={styles.dashboard__prettify_btn}
+                // onClick={handlePrettify}
+              />
+            </div>
           </div>
-          {activeComponent === 'Variables' && <Variables />}
-          {activeComponent === 'Headers' && <Headers />}
+          <div className={styles.row2}>
+            <div className={styles.row2_wrapper}>
+              <div className={styles.btn_wrapper}>
+                <button type="button" onClick={() => handleClick('Variables')}>
+                  Variables
+                </button>
+                <button type="button" onClick={() => handleClick('Headers')}>
+                  Headers
+                </button>
+              </div>
+              {activeComponent === 'Variables' && <Variables />}
+              {activeComponent === 'Headers' && <Headers />}
+            </div>
+
+            <div className={styles.arrow_open} />
+          </div>
+        </div>
+
+        <div className={styles.column3}>
+          <div className={styles.title}>Response</div>
+          <pre>
+            <span className={styles.response}>{response}</span>
+          </pre>
         </div>
       </div>
     </div>

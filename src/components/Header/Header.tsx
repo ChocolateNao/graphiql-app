@@ -44,11 +44,7 @@ function Header() {
     <header className={`${styles.sticky} ${isSticky ? styles.shrink : ''}`}>
       <nav className={styles.navigation}>
         <div className={styles.navigation_left}>
-          <img
-            className={styles.logo}
-            src="./src/assets/png/Logo.png"
-            alt="Logo"
-          />
+          <div className={styles.logo} />
           <NavLink className={styles.welcome} to="/">
             {t('navigation.welcome')}
           </NavLink>

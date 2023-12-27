@@ -1,5 +1,5 @@
 .logo {
-  width: 120px;
+  width: 12rem;
   height: auto;
 }
 
@@ -7,10 +7,12 @@
   font-size: 2.4rem;
   display: flex;
   justify-content: space-between;
-  gap: 5px;
+  gap: 0.5rem;
   padding: 3rem 3rem;
   text-align: center;
   background: $color-background-secondary;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 a {

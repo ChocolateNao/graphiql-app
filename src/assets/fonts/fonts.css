@@ -21,9 +21,7 @@
 
 @font-face {
   font-family: 'JetBrains Mono Medium';
-  src: url('./jetbrains-mono.medium-medium.ttf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
+  src: url('./JetBrainsMono-Medium.ttf') format('opentype');
 }
 
 @font-face {

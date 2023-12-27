@@ -1,20 +1,20 @@
 header {
   background: $color-background-secondary;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .sticky {
   position: sticky;
   top: 0;
   transition: height 0.5s;
-  height: 85px;
+  height: 8.5rem;
   z-index: 1;
 }
 
 .shrink {
   transition: height 0.5s;
-  height: 65px;
+  height: 6.5rem;
 }
 
 .welcome {
@@ -60,9 +60,9 @@ header {
   padding-bottom: 0.95rem;
   text-align: center;
   background: $color-primary;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   font-size: 1.8rem;
-  width: 111px;
+  width: 11.1rem;
   @extend %font-add;
   cursor: pointer;
   @extend %transition;
@@ -70,7 +70,9 @@ header {
     background: $color-hovered;
   }
 }
-
-.logout {
-  width: 140px;
+.logo {
+  background-image: url('./src/assets/png/Logo.png');
+  width: 6rem;
+  height: 6rem;
+  background-size: cover;
 }

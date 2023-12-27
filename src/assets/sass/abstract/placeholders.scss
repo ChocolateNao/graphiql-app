@@ -15,19 +15,20 @@
   font-family: 'JetBrains Mono Medium', sans-serif;
 }
 
-%font-form {
+%font-response {
   font-family: 'JetBrains Mono Regular', sans-serif;
 }
 
 %custom-scroll {
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 0.8rem;
+    background: #1e1c1c;
   }
   &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 1px grey;
   }
   &::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #32373c;
     border-radius: 10px;
   }
 }

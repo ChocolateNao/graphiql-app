@@ -26,7 +26,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Sylphur
+            @Sylphur
           </a>
           <a
             className={styles.link}
@@ -34,7 +34,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            TatsianaSauko
+            @TatsianaSauko
           </a>
           <a
             className={styles.link}
@@ -42,7 +42,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            ChocolateNao
+            @ChocolateNao
           </a>
         </div>
       </div>
