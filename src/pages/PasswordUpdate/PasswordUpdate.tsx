@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FormPassword } from 'models/AuthInterfaces';
+import { FormPassword } from 'models/Auth.interface';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import { resetPassword } from 'utils/firebase';
 import passwordUpdateSchema from 'utils/valifationPasswordUpdate';

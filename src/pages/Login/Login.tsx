@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FormLogin } from 'models/AuthInterfaces';
+import { FormLogin } from 'models/Auth.interface';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import {
   auth,
