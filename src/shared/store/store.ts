@@ -3,11 +3,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { preflight } from 'utils/graphql-connect';
 
 import endpointSlice from './reducers/endpointSlice';
+import { editorReducer } from './slices/editorSlice';
 
 export const store = configureStore({
   reducer: {
     [preflight.reducerPath]: preflight.reducer,
     endpoint: endpointSlice,
+    editor: editorReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(preflight.middleware),

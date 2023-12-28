@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAppSelector } from 'hooks/redux-hooks';
+import { useActions, useAppSelector } from 'hooks/redux-hooks';
 
 import Headers from 'components/Headers';
 import MainEndpointInput from 'components/MainEndpointInput/MainEndpointInput';
@@ -12,8 +12,13 @@ import { formatQuery, isCodeValid } from 'utils/prettify';
 import styles from './MainPage.module.scss';
 
 function MainPage() {
-  const [request, setRequest] = useState('');
-  const [response, setResponse] = useState('');
+  const selectRequest = (state: RootState) => state.editor.request;
+  const selectResponse = (state: RootState) => state.editor.response;
+  const selectVariables = (state: RootState) => state.editor.variables;
+  const request = useAppSelector(selectRequest);
+  const response = useAppSelector(selectResponse);
+  const variables = useAppSelector(selectVariables);
+  const { setRequest, setResponse } = useActions();
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isButtonVariablesClicked, setIsButtonVariablesClicked] =
@@ -46,7 +51,7 @@ function MainPage() {
   };
 
   const handleRequest = async () => {
-    makeGraphQLRequest(endpoint, request)
+    makeGraphQLRequest(endpoint, request, variables)
       .then((res) => setResponse(JSON.stringify(res, null, 2)))
       .catch((err: Error) => setResponse(JSON.stringify(err.message, null, 2)));
   };

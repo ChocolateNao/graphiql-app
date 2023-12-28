@@ -120,7 +120,7 @@
       display: flex;
       gap: 4.5rem;
       color: $color-input-text;
-      padding-bottom: 1rem;
+      padding-bottom: 1.5rem;
       & > * {
         @extend %transition;
         cursor: pointer;
@@ -187,10 +187,16 @@
 
 .height_row2 {
   height: 7vh;
+  @include media-mobile {
+    height: 5vh;
+  }
 }
 
 .add_height {
   height: 25vh;
+  @include media-mobile {
+    height: 20vh;
+  }
 }
 
 .remove_height {

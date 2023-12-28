@@ -1,12 +1,31 @@
+import { toast } from 'react-toastify';
+
 import * as requests from '../shared/constants/requests';
 
-const makeGraphQLRequest = async (url: string, query: string) => {
+const parseVariables = (variables: string) => {
+  let parsedVariables = '';
+  if (variables.trim() !== '') {
+    try {
+      parsedVariables = JSON.parse(variables);
+    } catch (error) {
+      toast.error('Please enter valid JSON in variables');
+    }
+  }
+  return parsedVariables;
+};
+
+const makeGraphQLRequest = async (
+  url: string,
+  query: string,
+  variables: string = ''
+) => {
+  const parsedVariables = parseVariables(variables);
   const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ query, variables: parsedVariables }),
   });
   return res.json();
 };
