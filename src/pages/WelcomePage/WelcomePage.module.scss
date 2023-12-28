@@ -1,5 +1,12 @@
 .welcome {
   background-color: $color-background-secondary3;
+  margin-bottom: -0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.welcome_top__wrapper {
+  background-color: $color-background-secondary3;
   background-image: url('./src/assets/jpg/home-bg.jpg');
   min-height: 1285px;
   background-repeat: no-repeat;
@@ -64,9 +71,7 @@
 }
 
 .link {
-  padding-top: 2.05rem;
-  padding-bottom: 2.05rem;
-  width: 24.4rem;
+  padding: 2.05rem 3rem;
   background: $color-primary;
   border-radius: 1rem;
   font-size: 4rem;
@@ -131,5 +136,92 @@
 
   @include media-mobile {
     flex-wrap: wrap;
+  }
+}
+
+.welcome_bottom {
+  display: flex;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.learn {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, rgb(24, 74, 110), rgb(22, 15, 62));
+  gap: 4rem;
+  width: 115rem;
+  @include media-laptop {
+    width: 100rem;
+  }
+  @include media-big-tablet {
+    width: 80rem;
+  }
+
+  @include media-tablet {
+    width: 60rem;
+  }
+  @include media-mobile {
+    width: 40rem;
+  }
+  border-radius: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+  @extend %font-prim;
+  .learn_title {
+    font-size: 6.5rem;
+    text-align: center;
+  }
+  .learn_subtitle {
+    font-size: 4rem;
+    width: 65.4rem;
+    text-align: center;
+    @include media-tablet {
+      width: 40rem;
+    }
+    @include media-mobile {
+      width: 35rem;
+    }
+  }
+  .link {
+    font-size: 4rem;
+    width: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.team {
+  font-size: 6.5rem;
+  text-align: center;
+  @extend %font-prim;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.text {
+  font-size: 4rem;
+  @extend %font-prim;
+  text-align: center;
+  padding-bottom: 4rem;
+  width: 100rem;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @include media-laptop {
+    width: 80rem;
+  }
+  @include media-big-tablet {
+    width: 70rem;
+  }
+  @include media-tablet {
+    width: 60rem;
+  }
+  @include media-mobile {
+    width: 45rem;
   }
 }
