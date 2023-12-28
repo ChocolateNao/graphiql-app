@@ -6,22 +6,21 @@ import { SupportedLocale } from 'utils/localizationConfig';
 import styles from './LanguageSelect.module.scss';
 
 function LanguageSelect() {
-  const { setLocale, t } = useLocalization();
+  const { setLocale } = useLocalization();
 
   const selectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setLocale(event.target.value as SupportedLocale);
   };
   return (
     <label htmlFor="locale">
-      {`${t('settings.currentLocale')}`}
       <select
         className={styles.locale}
         name="locale"
         id="locale"
         onChange={selectHandler}
       >
-        <option value="en_US">English</option>
-        <option value="ru_RU">Русский</option>
+        <option value="en_US">en</option>
+        <option value="ru_RU">ru</option>
       </select>
     </label>
   );

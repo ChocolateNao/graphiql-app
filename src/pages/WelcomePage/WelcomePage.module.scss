@@ -82,9 +82,6 @@
   &:hover {
     background: $color-hovered;
   }
-  @include media-mobile {
-    width: 19.2rem;
-  }
 }
 
 .welcome_top_right {
