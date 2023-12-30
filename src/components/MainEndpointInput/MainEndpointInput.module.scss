@@ -1,8 +1,14 @@
 .dashboard__endpoint_input {
-  margin-left: 20px;
-  padding: 5px;
+  margin-left: 2rem;
+  padding: 0.5rem;
   width: 70%;
 }
 .dashboard__endpoint_label {
   width: 60%;
+  @include media-tablet {
+    width: 90%;
+  }
+  @include media-mobile {
+    width: 100%;
+  }
 }

@@ -6,11 +6,12 @@
 }
 
 .dashboard__endpoint_wrapper {
-  background-color: #dcdcdc;
-  padding: 1.3rem 0.5rem 0.5rem 3rem;
-  margin: 0 1.5rem;
+  border-radius: 1rem;
+  padding: 2.1rem;
+  background-color: $color-background-secondary;
   display: flex;
   justify-content: space-between;
+  font-size: 2rem;
 }
 
 .dashboard__textarea {
