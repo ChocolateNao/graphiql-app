@@ -42,101 +42,114 @@ function Register() {
 
   return (
     <div className={styles.register}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h4 className={styles.title}>{t('authorization.register')}</h4>
-        <div className={styles.input_field}>
-          <label>{t('authorization.lables.fullName')}</label>
-          <input
-            className={styles.register__textBox}
-            {...register('name')}
-            placeholder={t('placeholders.fullName')}
-          />
-          {errors.name ? (
-            <p className={styles.error}>{t(errors.name.message)}</p>
-          ) : (
-            <p className={styles.hidden}>Placeholder</p>
-          )}
-        </div>
-        <div className={styles.input_field}>
-          <label>{t('authorization.lables.email')}</label>
-          <input
-            className={styles.register__textBox}
-            {...register('email')}
-            placeholder={t('placeholders.email')}
-          />
-          {errors.email ? (
-            <p className={styles.error}>{t(errors.email.message)}</p>
-          ) : (
-            <p className={styles.hidden}>Placeholder</p>
-          )}
-        </div>
-        <div className={styles.input_field}>
-          <label>{t('authorization.lables.password')}</label>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            className={styles.register__textBox}
-            {...register('password')}
-            placeholder={t('placeholders.password')}
-          />
-          <div className={styles.show_password}>
+      <div className={styles.register_wrapper}>
+        <h4 className={styles.title}>Come abroad!</h4>
+        <h4 className={styles.subtitle}>{t('authorization.register')}</h4>
+        <form
+          className={styles.register_form}
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className={styles.input_field}>
             <label className={styles.label}>
-              {t('authorization.lables.passwordShow')}
+              {t('authorization.lables.fullName')}
             </label>
             <input
-              type="checkbox"
-              checked={showPassword}
-              onChange={() => setShowPassword(!showPassword)}
+              className={styles.register__textBox}
+              {...register('name')}
+              placeholder={t('placeholders.fullName')}
             />
+            {errors.name ? (
+              <p className={styles.error}>{t(errors.name.message)}</p>
+            ) : (
+              <p className={styles.hidden}>Placeholder</p>
+            )}
           </div>
-          {errors.password ? (
-            <p className={styles.error}>{t(errors.password.message)}</p>
-          ) : (
-            <p className={styles.hidden}>Placeholder</p>
-          )}
-        </div>
-        <div className={styles.input_field}>
-          <label>{t('authorization.lables.passwordConfirm')}</label>
-          <input
-            type={showPasswordRepeat ? 'text' : 'password'}
-            className={styles.register__textBox}
-            {...register('confirmPassword')}
-            placeholder={t('placeholders.passwordConfirm')}
-          />
-          <div className={styles.show_password}>
+          <div className={styles.input_field}>
             <label className={styles.label}>
-              {t('authorization.lables.passwordShow')}
+              {t('authorization.lables.email')}
             </label>
             <input
-              type="checkbox"
-              checked={showPasswordRepeat}
-              onChange={() => setShowPasswordRepeat(!showPasswordRepeat)}
+              className={styles.register__textBox}
+              {...register('email')}
+              placeholder={t('placeholders.email')}
             />
+            {errors.email ? (
+              <p className={styles.error}>{t(errors.email.message)}</p>
+            ) : (
+              <p className={styles.hidden}>Placeholder</p>
+            )}
           </div>
-          {errors.confirmPassword ? (
-            <p className={styles.error}>{t(errors.confirmPassword.message)}</p>
-          ) : (
-            <p className={styles.hidden}>Placeholder</p>
-          )}
+          <div className={styles.input_field}>
+            <label className={styles.label}>
+              {t('authorization.lables.password')}
+            </label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              className={styles.register__textBox}
+              {...register('password')}
+              placeholder={t('placeholders.password')}
+            />
+            <div className={styles.show_password}>
+              <label>{t('authorization.lables.passwordShow')}</label>
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={() => setShowPassword(!showPassword)}
+              />
+            </div>
+            {errors.password ? (
+              <p className={styles.error}>{t(errors.password.message)}</p>
+            ) : (
+              <p className={styles.hidden}>Placeholder</p>
+            )}
+          </div>
+          <div className={styles.input_field}>
+            <label className={styles.label}>
+              {t('authorization.lables.passwordConfirm')}
+            </label>
+            <input
+              type={showPasswordRepeat ? 'text' : 'password'}
+              className={styles.register__textBox}
+              {...register('confirmPassword')}
+              placeholder={t('placeholders.passwordConfirm')}
+            />
+            <div className={styles.show_password}>
+              <label>{t('authorization.lables.passwordShow')}</label>
+              <input
+                type="checkbox"
+                checked={showPasswordRepeat}
+                onChange={() => setShowPasswordRepeat(!showPasswordRepeat)}
+              />
+            </div>
+            {errors.confirmPassword ? (
+              <p className={styles.error}>
+                {t(errors.confirmPassword.message)}
+              </p>
+            ) : (
+              <p className={styles.hidden}>Placeholder</p>
+            )}
+          </div>
+          <input
+            type="submit"
+            className={styles.register__btn}
+            value={t('authorization.register')}
+          />
+        </form>
+        <div className={styles.divider}>OR</div>
+        <button
+          type="button"
+          className={styles.register__google}
+          onClick={signInWithGoogle}
+        >
+          {t('authorization.registerGoogle')}
+        </button>
+        <div className={styles.register_bottom}>
+          {t('registerPage.yesProfile')}{' '}
+          <Link to="/login" className={styles.link}>
+            {t('authorization.login')}
+          </Link>{' '}
+          {t('now')}.
         </div>
-        <input
-          type="submit"
-          className={styles.register__btn}
-          value={t('authorization.register')}
-        />
-      </form>
-      <button
-        type="button"
-        className={styles.register__google}
-        onClick={signInWithGoogle}
-      >
-        {t('authorization.registerGoogle')}
-      </button>
-      <div>
-        {t('registerPage.yesProfile')}{' '}
-        <Link to="/login" className={styles.link}>
-          {t('authorization.login')}
-        </Link>{' '}
-        {t('now')}.
       </div>
     </div>
   );

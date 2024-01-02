@@ -1,6 +1,7 @@
-@import '../../styles/abstract/placeholders.scss';
 .variables__textarea {
-  height: 90%;
+  height: 83%;
   width: 100%;
   @extend %custom-scroll;
+  @extend %font-query;
+  color: $color-text-query;
 }
