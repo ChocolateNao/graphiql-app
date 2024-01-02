@@ -1,8 +1,12 @@
-import { Props } from 'models/Member.interfaces';
+import { TeamMember } from 'models/TeamMember.interface';
 
 import styles from './TeamMemberCard.module.scss';
 
-function TeamMemberCard({ member }: Props) {
+export interface TeamMemberCardProps {
+  member: TeamMember;
+}
+
+function TeamMemberCard({ member }: TeamMemberCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.avatar}>

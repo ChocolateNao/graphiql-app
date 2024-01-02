@@ -1,10 +1,12 @@
 import { useActions, useAppSelector } from 'hooks/redux-hooks';
 
+import { useLocalization } from 'shared/context/LocalizationContext';
 import { RootState } from 'shared/store/store';
 
-import styles from './Headers.module.scss';
+import styles from './HeadersSection.module.scss';
 
 function Headers() {
+  const { t } = useLocalization();
   const selectHeaders = (state: RootState) => state.editor.variables;
   const headers = useAppSelector(selectHeaders);
   const { setHeaders } = useActions();
@@ -15,7 +17,7 @@ function Headers() {
   return (
     <textarea
       className={styles.headers__textarea}
-      placeholder="Enter headers"
+      placeholder={t('placeholders.headers')}
       value={headers}
       onChange={handleInputChange}
     />

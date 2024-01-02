@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FormPassword } from 'models/Auth.interface';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import { resetPassword } from 'utils/firebase';
-import passwordUpdateSchema from 'utils/valifationPasswordUpdate';
+import passwordUpdateSchema from 'utils/validationPasswordUpdate';
 
 import styles from './PasswordUpdate.module.scss';
 
