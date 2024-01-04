@@ -13,6 +13,9 @@
   background: $color-background-secondary;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  @include media-mobile {
+    font-size: 2rem;
+  }
 }
 
 a {

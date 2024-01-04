@@ -6,6 +6,7 @@ import {
 
 import ErrorFallback from 'components/ErrorFallback';
 import RootLayout from 'layouts/RootLayout';
+import EndpointSettings from 'pages/EndpointSettings';
 import Login from 'pages/Login';
 import MainPage from 'pages/MainPage';
 import PasswordUpdate from 'pages/PasswordUpdate/PasswordUpdate';
@@ -15,14 +16,17 @@ import WelcomePage from 'pages/WelcomePage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />} errorElement={<ErrorFallback />}>
-      <Route index element={<WelcomePage />} />
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-      <Route path="reset" element={<Reset />} />
+    <>
+      <Route path="/" element={<RootLayout />} errorElement={<ErrorFallback />}>
+        <Route index element={<WelcomePage />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="reset" element={<Reset />} />
+        <Route path="home" element={<MainPage />} />
+        <Route path="endpoint-settings" element={<EndpointSettings />} />
+      </Route>
       <Route path="password-update" element={<PasswordUpdate />} />
-      <Route path="home" element={<MainPage />} />
-    </Route>
+    </>
   )
 );
 
