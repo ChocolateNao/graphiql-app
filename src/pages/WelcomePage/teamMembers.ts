@@ -6,7 +6,7 @@ const teamMembers: TeamMember[] = [
     name: 'Andrei Loginov',
     role: 'Team Lead, Frontend Developer',
     bio: 'Tatiana has a pedagogical education. In her previous life she was a math teacher. Tatiana has been studying frontend development for almost 1.5 years, hoping to become a specialist in this field before reaching retirement age.',
-    photo: 'url_to_photo',
+    photo: 'public/jpg/team/andrey.jpg',
     contributions: [
       'Added development scripts and set up repository',
       'Set up Vercel for website deployment',
@@ -19,7 +19,7 @@ const teamMembers: TeamMember[] = [
     name: 'Tatiana Gabermel',
     role: 'Frontend Developer',
     bio: 'Tatiana has a pedagogical education. In her previous life she was a math teacher. Tatiana has been studying frontend development for almost 1.5 years, hoping to become a specialist in this field before reaching retirement age.',
-    photo: 'src/assets/png/tatiana.jpg',
+    photo: 'public/jpg/team/tatiana.jpg',
     contributions: [
       'Developed registration, login',
       'Set up router',
@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
     name: 'Evgeniy Redchenko',
     role: 'Frontend Developer',
     bio: 'Tatiana has a pedagogical education. In her previous life she was a math teacher. Tatiana has been studying frontend development for almost 1.5 years, hoping to become a specialist in this field before reaching retirement age.',
-    photo: 'url_to_photo',
+    photo: 'public/jpg/team/evgeniy.jpg',
     contributions: [
       'Developed registration, login',
       'Set up router',
