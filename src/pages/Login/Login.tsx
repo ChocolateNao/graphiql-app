@@ -41,7 +41,7 @@ function Login() {
   return (
     <div className={styles.login}>
       <div className={styles.login_wrapper}>
-        <h4 className={styles.title}>Welcome back!</h4>
+        <h4 className={styles.title}>{t('loginPage.welcomeBack')}</h4>
         <h4 className={styles.subtitle}>{t('authorization.login')}</h4>
         <form className={styles.login_form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.input_field}>
@@ -89,7 +89,7 @@ function Login() {
             value={t('authorization.login')}
           />
         </form>
-        <div className={styles.divider}>OR</div>
+        <div className={styles.divider}>{t('bigOR')}</div>
         <button
           type="button"
           className={styles.login__google}

@@ -119,7 +119,7 @@ function MainPage() {
                   onClick={() => handleClick('Variables')}
                   disabled={!isPanelOpen}
                 >
-                  Variables
+                  {t('mainPage.variablesSwitch')}
                 </button>
                 <button
                   className={`${isButtonHeadersClicked ? styles.active : ''}`}
@@ -127,7 +127,7 @@ function MainPage() {
                   onClick={() => handleClick('Headers')}
                   disabled={!isPanelOpen}
                 >
-                  Headers
+                  {t('mainPage.headersSwitch')}
                 </button>
               </div>
               {activeComponent === 'Variables' && <Variables />}
@@ -146,7 +146,7 @@ function MainPage() {
         </div>
 
         <div className={styles.column3}>
-          <div className={styles.title}>Response</div>
+          <div className={styles.title}>{t('mainPage.response')}</div>
           <pre>
             <span className={styles.response}>{response}</span>
           </pre>

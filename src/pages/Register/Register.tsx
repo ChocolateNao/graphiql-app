@@ -43,7 +43,7 @@ function Register() {
   return (
     <div className={styles.register}>
       <div className={styles.register_wrapper}>
-        <h4 className={styles.title}>Come abroad!</h4>
+        <h4 className={styles.title}>{t('registerPage.welcomeHeader')}</h4>
         <h4 className={styles.subtitle}>{t('authorization.register')}</h4>
         <form
           className={styles.register_form}
@@ -135,7 +135,7 @@ function Register() {
             value={t('authorization.register')}
           />
         </form>
-        <div className={styles.divider}>OR</div>
+        <div className={styles.divider}>{t('bigOR')}</div>
         <button
           type="button"
           className={styles.register__google}

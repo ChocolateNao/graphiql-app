@@ -1,6 +1,7 @@
 {
   "loading": "Loading...",
   "select": "Select",
+  "bigOR": "OR",
   "now": "now",
   "settings": {
     "currentLocale": "en"
@@ -29,27 +30,87 @@
     "welcome": "Welcome"
   },
   "welcomePage": {
-    "welcome": "Welcome to the app, %name%!"
+    "welcome": "Welcome to the GraphQL API Playground",
+    "freePossibilitiesHeading": "Explore infinite possibilities and data combination with GraphQL for free!",
+    "instantResponse": "Instant response.",
+    "instantResponseText": "Get exactly what you are looking for.",
+    "graphqlNewbie": "New to Graph QL?",
+    "graphqlTutorials": "Get started with free Graph QL tutorials.",
+    "startLearning": "Start learning",
+    "developmentTeamHeading": "Meet our development team",
+    "inFavorOfRsschool": "This project was created during the final task of RS School React course.",
+    "inFavorOfRsschoolText": "You can find the materials and all the information ",
+    "here": "here"
   },
   "loginPage": {
-    "noProfile": "Don't have an account?"
+    "noProfile": "Don't have an account?",
+    "welcomeBack": "Welcome back!"
   },
   "registerPage": {
-    "yesProfile": "Already have an account?"
+    "yesProfile": "Already have an account?",
+    "welcomeHeader": "Come abroad!"
   },
   "passwordResetPage": {
     "sendResetLink": "Send password reset e-mail"
   },
   "mainPage": {
+    "variablesSwitch": "Variables",
+    "headersSwitch": "Headers",
+    "response": "Response",
     "lables": {
       "endpoint": "API endpoint:"
     }
+  },
+  "footer": {
+    "madeWithLove": "Made with love and passion by:"
   },
   "errorPage": {
     "errorFallback": {
       "header": "Oopsie Woopsie! Something went wrong.",
       "text": "You can try to refresh the page or simply click the button here that will do it for you.",
       "reload": "Reload page"
+    }
+  },
+  "teamMembersCard": {
+    "andrey": {
+      "name": "Andrey Loginov",
+      "role": "Team Lead, Frontend Developer",
+      "bio": "Andrey is a passionate self-taught programmer on a journey to fulfill his ambition of working as a professional developer. Through building tools and libraries and continuously honing skills, He's gradually paving the way towards a career in IT.",
+      "contributions": {
+        "repo": "Added development scripts and set up repository",
+        "vercel": "Set up Vercel for deployment",
+        "locales": "Localization",
+        "tests": "Tests",
+        "store": "Redux store",
+        "design": "Figma design",
+        "finals": "Final polishing and check-ups"
+      }
+    },
+    "tatiana": {
+      "name": "Tatiana Gabermel",
+      "role": "Frontend Developer",
+      "bio": "Tatiana has a pedagogical education. In her previous life she was a math teacher. Tatiana has been studying frontend development for almost 1.5 years, hoping to become a specialist in this field before reaching retirement age.",
+      "contributions": {
+        "registration": "Developed registration, login",
+        "router": "Set up router",
+        "layout": "SCSS layout (pages, sticky header etc.)",
+        "editorsFunctionality": "Editor's functionality",
+        "queryPrettifying": "Query prettifying",
+        "formValidation": "Forms validation"
+      }
+    },
+    "evgeniy": {
+      "name": "Evgeniy Redchenko",
+      "role": "Frontend Developer",
+      "bio": "Evgeniy is a person",
+      "contributions": {
+        "editor": "The initial version of the editor",
+        "reqHandler": "Graph QL request & response handler",
+        "apiInput": "Graph QL API input",
+        "store": "Redux store",
+        "headersVars": "Variables & headers logic",
+        "documentation": "Documentation section logic"
+      }
     }
   },
   "placeholders": {
@@ -59,7 +120,9 @@
     "passwordConfirm": "Repeat your password",
     "passwordUpdate": "Enter new password",
     "code": "Enter your query here",
-    "endpoint": "Enter your Graph QL API endpoint"
+    "endpoint": "Enter your Graph QL API endpoint",
+    "headers": "Enter headers",
+    "variables": "Enter variables"
   },
   "yup": {
     "name": {
