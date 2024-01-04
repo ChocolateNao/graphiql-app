@@ -1,11 +1,26 @@
 .docs__innerWrapper {
   border-left: 3px solid $color-background-main;
-  padding-left: 5px;
+  padding-left: 1rem;
+  padding-right: 10px;
   width: 25vw;
   font-size: 1.6rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @extend %custom-scroll;
 }
 .docs__title {
   font-size: 2.4rem;
+  text-align: center;
+}
+.docs__subtitle {
+  padding-left: 5px;
+  padding-bottom: 1rem;
+}
+.docs__returnBtn_wrapper {
+  text-align: center;
+  padding-bottom: 3px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $color-background-main;
 }
 .docs__returnBtn {
   font-size: 1.4rem;
@@ -14,4 +29,8 @@
 }
 .docs__returnBtn:hover {
   color: #fff;
+}
+.docs__description {
+  text-align: center;
+  margin-bottom: 1rem;
 }

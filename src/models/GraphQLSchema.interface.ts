@@ -13,7 +13,7 @@ export interface GraphQLSchema {
     };
   };
 }
-interface SchemaFullType {
+export interface SchemaFullType {
   name: string;
   kind: string;
   description: string;
@@ -31,6 +31,13 @@ export interface SchemaField {
   isDeprecated: boolean;
   deprecationReason: string;
 }
+export interface SchemaInputValue {
+  name: string;
+  description: string;
+  defaultValue: string;
+  type: SchemaTypeRef | null;
+}
+
 interface SchemaTypeRef {
   kind: string;
   name: string;
@@ -47,12 +54,7 @@ interface SchemaTypeRef {
     };
   };
 }
-interface SchemaInputValue {
-  name: string;
-  description: string;
-  defaultValue: string;
-  type: SchemaTypeRef[] | null;
-}
+
 interface SchemaEnumValue {
   name: string;
   description: string;

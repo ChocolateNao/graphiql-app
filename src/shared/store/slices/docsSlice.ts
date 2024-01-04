@@ -1,12 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import GraphQLMethod from 'shared/enums/GraphQLMethod';
+
 interface DocsState {
   isOpened: boolean;
-  page: string;
+  targetName: string;
+  targetType: string;
+  method: GraphQLMethod;
 }
 const initialState: DocsState = {
   isOpened: false,
-  page: 'index',
+  targetName: 'index',
+  targetType: '',
+  method: GraphQLMethod.Query,
 };
 
 const docsSlice = createSlice({
@@ -15,10 +21,16 @@ const docsSlice = createSlice({
   reducers: {
     setDocsIsOpened: (state, action: PayloadAction<boolean>) => {
       state.isOpened = action.payload;
-      state.page = 'index';
+      state.targetName = 'index';
     },
-    setDocsPage: (state, action: PayloadAction<string>) => {
-      state.page = action.payload;
+    setDocsTargetName: (state, action: PayloadAction<string>) => {
+      state.targetName = action.payload;
+    },
+    setDocsTargetType: (state, action: PayloadAction<string>) => {
+      state.targetType = action.payload;
+    },
+    setDocsMethod: (state, action: PayloadAction<GraphQLMethod>) => {
+      state.method = action.payload;
     },
   },
 });
