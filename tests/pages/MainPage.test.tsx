@@ -23,14 +23,12 @@ describe('Main Page', () => {
     render(<AppWrapper />);
 
     await waitFor(() => {
-      expect(screen.getByPlaceholderText('Enter your Graph QL API endpoint'));
+      expect(screen.getByPlaceholderText(/API endpoint/i));
     });
   });
 
   it('renders the page', () => {
-    const element = screen.getByPlaceholderText(
-      /Enter your Graph QL API endpoint/i
-    );
+    const element = screen.getByPlaceholderText(/API endpoint/i);
     expect(element).toBeInTheDocument();
   });
 });
