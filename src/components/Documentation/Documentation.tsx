@@ -1,0 +1,36 @@
+import { useAppSelector } from 'hooks/redux-hooks';
+
+import { GraphQLSchema } from 'models/GraphQLSchema.interface';
+import { RootState } from 'shared/store/store';
+
+import DocsList from './DocsMainPage/DocsMainPage';
+import DocsTypePage from './DocsTypePage/DocsTypePage';
+
+import styles from './Documentation.module.scss';
+
+function Documentation() {
+  // const [currPage, setCurrPage] = useState('index');
+  const selectPage = (state: RootState) => state.docs.page;
+  const selectIsConnected = (state: RootState) => state.endpoint.isConnected;
+  const selectTakenSchema = (state: RootState) => state.endpoint.takenSchema;
+  const page = useAppSelector(selectPage);
+  const isConnected = useAppSelector(selectIsConnected);
+  const schema: GraphQLSchema | null = useAppSelector(selectTakenSchema);
+
+  const isIndexPage = (page: string) => page === 'index';
+
+  return (
+    <div className={styles.docs__innerWrapper}>
+      <h1 className={styles.docs__title}>Documentation</h1>
+      {isConnected && schema && isIndexPage(page) && (
+        <DocsList schema={schema} />
+      )}
+      {isConnected && schema && !isIndexPage(page) && (
+        <DocsTypePage schema={schema} page={page} />
+      )}
+      {!isConnected && <h2>API is not connected</h2>}
+    </div>
+  );
+}
+
+export default Documentation;

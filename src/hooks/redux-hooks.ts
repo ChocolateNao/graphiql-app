@@ -4,6 +4,7 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 import { RootState } from 'shared/store/store';
 
 import { endpointActions } from '../shared/store/reducers/endpointSlice';
+import { docsActions } from '../shared/store/slices/docsSlice';
 import {
   setHeaders,
   setRequest,
@@ -13,6 +14,7 @@ import {
 
 const actions = {
   ...endpointActions,
+  ...docsActions,
   setRequest,
   setResponse,
   setVariables,

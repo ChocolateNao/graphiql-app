@@ -86,6 +86,12 @@
     @extend %transition;
     cursor: pointer;
   }
+  .docs__wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 5px;
+  }
 }
 
 .column2 {

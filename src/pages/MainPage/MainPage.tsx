@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useActions, useAppSelector } from 'hooks/redux-hooks';
 
+import Documentation from 'components/Documentation/Documentation';
 import Headers from 'components/Headers';
 import MainEndpointInput from 'components/MainEndpointInput/MainEndpointInput';
 import Variables from 'components/Variables';
@@ -21,12 +22,13 @@ function MainPage() {
   const { setRequest, setResponse } = useActions();
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isDocsOpen, setIsDocsOpen] = useState(false);
   const [isButtonVariablesClicked, setIsButtonVariablesClicked] =
     useState(false);
   const [isButtonHeadersClicked, setIsButtonHeadersClicked] = useState(false);
 
-  const endpointAction = (state: RootState) => state.endpoint.url;
-  const endpoint = useAppSelector(endpointAction);
+  const selectEndpoint = (state: RootState) => state.endpoint.url;
+  const endpoint = useAppSelector(selectEndpoint);
 
   const { t } = useLocalization();
 
@@ -48,6 +50,10 @@ function MainPage() {
       setIsButtonVariablesClicked(false);
       setIsButtonHeadersClicked(false);
     }
+  };
+
+  const handleDocumentationButtonClick = () => {
+    setIsDocsOpen(!isDocsOpen);
   };
 
   const handleRequest = async () => {
@@ -77,7 +83,15 @@ function MainPage() {
       </div>
       <div className={styles.dashboard__wrapper}>
         <div className={styles.column1}>
-          <div className={styles.icon_doc} />
+          <div className={styles.docs__wrapper}>
+            <button
+              type="button"
+              className={styles.icon_doc}
+              aria-label="Open Docs"
+              onClick={handleDocumentationButtonClick}
+            />
+            {isDocsOpen && <Documentation />}
+          </div>
         </div>
         <div className={styles.column2}>
           <div

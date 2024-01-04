@@ -1,0 +1,10 @@
+.docs__typeBtn {
+  display: block;
+  width: 100%;
+  text-align: start;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.docs__typeBtn:hover {
+  background-color: $color-dark-placeholder;
+}

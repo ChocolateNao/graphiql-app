@@ -23,11 +23,11 @@ interface SchemaFullType {
   enumValues: SchemaEnumValue | null;
   fields: SchemaField[];
 }
-interface SchemaField {
+export interface SchemaField {
   name: string;
   description: string;
   args: SchemaInputValue[] | null;
-  type: SchemaTypeRef[] | null;
+  type: SchemaTypeRef | null;
   isDeprecated: boolean;
   deprecationReason: string;
 }
