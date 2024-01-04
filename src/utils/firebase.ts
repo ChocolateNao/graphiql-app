@@ -102,7 +102,7 @@ const registerWithEmailAndPassword = async (
 };
 
 const actionCodeSettings = {
-  url: 'http://localhost:5173/password-update',
+  url: 'https://graphiql-app-amogus.vercel.app/password-update',
   handleCodeInApp: false,
 };
 
@@ -132,9 +132,11 @@ async function resetPassword(
     }
   }
 }
+
 const logout = () => {
   signOut(auth);
 };
+
 export {
   auth,
   db,
