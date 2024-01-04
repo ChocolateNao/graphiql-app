@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useActions, useAppSelector } from 'hooks/redux-hooks';
 
-import Headers from 'components/Headers';
+import Headers from 'components/HeadersSection';
 import MainEndpointInput from 'components/MainEndpointInput/MainEndpointInput';
-import Variables from 'components/Variables';
+import Variables from 'components/VariablesSection';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import { RootState } from 'shared/store/store';
 import makeGraphQLRequest from 'utils/graphql-request';

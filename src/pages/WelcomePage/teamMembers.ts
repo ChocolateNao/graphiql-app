@@ -1,4 +1,6 @@
-const teamMembers = [
+import { TeamMember } from 'models/TeamMember.interface';
+
+const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Andrei Loginov',

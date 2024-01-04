@@ -1,0 +1,6 @@
+{
+  "greeting": "Hello",
+  "nested": {
+    "firstNested": "I am nested"
+  }
+}
