@@ -6,7 +6,7 @@ const teamMembers: TeamMember[] = [
     name: 'teamMembersCard.andrey.name',
     role: 'teamMembersCard.andrey.role',
     bio: 'teamMembersCard.andrey.bio',
-    photo: 'public/jpg/team/andrey.jpg',
+    photo: 'jpg/team/andrey.jpg',
     contributions: [
       'teamMembersCard.andrey.contributions.repo',
       'teamMembersCard.andrey.contributions.vercel',
@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
     name: 'teamMembersCard.tatiana.name',
     role: 'teamMembersCard.tatiana.role',
     bio: 'teamMembersCard.tatiana.bio',
-    photo: 'public/jpg/team/tatiana.jpg',
+    photo: 'jpg/team/tatiana.jpg',
     contributions: [
       'teamMembersCard.tatiana.contributions.registration',
       'teamMembersCard.tatiana.contributions.router',
@@ -39,7 +39,7 @@ const teamMembers: TeamMember[] = [
     name: 'teamMembersCard.evgeniy.name',
     role: 'teamMembersCard.evgeniy.role',
     bio: 'teamMembersCard.evgeniy.bio',
-    photo: 'public/jpg/team/evgeniy.jpg',
+    photo: 'jpg/team/evgeniy.jpg',
     contributions: [
       'teamMembersCard.evgeniy.contributions.editor',
       'teamMembersCard.evgeniy.contributions.reqHandler',
