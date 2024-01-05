@@ -113,6 +113,10 @@
       }
     }
   },
+  "endpointSettings": {
+    "endpointSettingsHeading": "Настройки эндпоинта",
+    "useProxy": "Использовать встроенный прокси в случае ошибок CORS"
+  },
   "placeholders": {
     "fullName": "Введите полное имя",
     "email": "Введите адрес эл. почты",

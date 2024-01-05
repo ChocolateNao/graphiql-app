@@ -113,6 +113,10 @@
       }
     }
   },
+  "endpointSettings": {
+    "endpointSettingsHeading": "Endpoint Settings",
+    "useProxy": "Use built-in proxy in case of CORS errors"
+  },
   "placeholders": {
     "fullName": "Enter your full name",
     "email": "Enter your e-mail address",
