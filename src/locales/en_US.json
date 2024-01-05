@@ -102,7 +102,7 @@
     "evgeniy": {
       "name": "Evgeniy Redchenko",
       "role": "Frontend Developer",
-      "bio": "Evgeniy is a person",
+      "bio": "Evgeniy was started his programming carrier in 2021 with a commercial project - a site for restoraunt. It was such an exciting experience that he decided to fully immerse himself in this job, learning and improving his project in parallel",
       "contributions": {
         "editor": "The initial version of the editor",
         "reqHandler": "Graph QL request & response handler",
@@ -151,6 +151,14 @@
     "confirmPassword": {
       "required": "Password repetition is required in order to proceed",
       "oneOf": "Passwords must match"
+    }
+  },
+  "documentation": {
+    "title": "Documentation",
+    "info-btn": "How it works?",
+    "return-btn": "return",
+    "errors": {
+      "not-connected": "API is not connected"
     }
   }
 }

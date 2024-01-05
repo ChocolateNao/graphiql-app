@@ -1,6 +1,7 @@
 import { useAppSelector } from 'hooks/redux-hooks';
 
 import { GraphQLSchema } from 'models/GraphQLSchema.interface';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import { RootState } from 'shared/store/store';
 
 import DocsMain from './DocsMainPage/DocsMainPage';
@@ -23,10 +24,12 @@ function Documentation() {
 
   const isIndexPage = (page: string) => page === 'index';
 
+  const { t } = useLocalization();
+
   return (
     <div className={styles.docs__innerWrapper}>
-      <h1 className={styles.docs__title}>Documentation</h1>
-      {isConnected && schema && isIndexPage(page) && (
+      <h1 className={styles.docs__title}>{t('documentation.title')}</h1>
+      {isConnected && schema && page === 'index' && (
         <DocsMain schema={schema} />
       )}
       {isConnected && schema && !isIndexPage(page) && (
@@ -35,7 +38,7 @@ function Documentation() {
       {!isConnected && (
         <div className={styles.docs__error_wrapper}>
           <div className={styles.docs__error_img} />
-          <h2>API is not connected</h2>
+          <h2>{t('documentation.errors.not-connected')}</h2>
         </div>
       )}
     </div>

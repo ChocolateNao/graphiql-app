@@ -1,6 +1,5 @@
-import { useActions } from 'hooks/redux-hooks';
-
 import { GraphQLSchema } from 'models/GraphQLSchema.interface';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import GraphQLMethod from 'shared/enums/GraphQLMethod';
 
 import DocsTypeButton from '../DocsTypeButton/DocsTypeButton';
@@ -13,7 +12,6 @@ interface DocsMainProps {
 
 function DocsMain(props: DocsMainProps) {
   const { schema } = props;
-  const { setDocsTargetName } = useActions();
 
   const queryEntryObject = schema.data.__schema.types.find(
     (type) => type.name === schema.data.__schema.queryType?.name
@@ -24,21 +22,20 @@ function DocsMain(props: DocsMainProps) {
   const subscriptionEntryObject = schema.data.__schema.types.find(
     (type) => type.name === schema.data.__schema.subscriptionType?.name
   );
-  const handleInfo = () => {
-    setDocsTargetName('index');
-  };
+
+  const { t } = useLocalization();
 
   return (
     <div>
       <div className={style.docs__content}>
         <div className={style.docs__returnBtn_wrapper}>
-          <button
-            type="button"
-            onClick={handleInfo}
+          <a
+            href="https://graphql.org/learn/#:~:text=GraphQL%20is%20a%20query%20language,your%20existing%20code%20and%20data"
+            target="blank"
             className={style.docs__returnBtn}
           >
-            How it works?
-          </button>
+            {t('documentation.info-btn')}
+          </a>
         </div>
         {queryEntryObject && (
           <>

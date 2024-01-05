@@ -1,6 +1,7 @@
 import { useActions } from 'hooks/redux-hooks';
 
 import { GraphQLSchema, SchemaFullType } from 'models/GraphQLSchema.interface';
+import { useLocalization } from 'shared/context/LocalizationContext';
 import GraphQLMethod from 'shared/enums/GraphQLMethod';
 
 import DocsTypeButton from '../DocsTypeButton/DocsTypeButton';
@@ -17,6 +18,7 @@ interface DocsTypePageProps {
 function DocsTypePage(props: DocsTypePageProps) {
   const { schema, page, type, method } = props;
   const { setDocsTargetName, setDocsTargetType } = useActions();
+  const { t } = useLocalization();
 
   let entryObject: SchemaFullType | undefined;
   switch (method) {
@@ -63,7 +65,7 @@ function DocsTypePage(props: DocsTypePageProps) {
           onClick={handleReturn}
           className={style.docs__returnBtn}
         >
-          &lt;&lt; return
+          &lt;&lt; {t('documentation.return-btn')}
         </button>
       </div>
       <div className={style.docs__description_title}>
@@ -91,7 +93,7 @@ function DocsTypePage(props: DocsTypePageProps) {
           <p>&#41; &#123;</p>
         </div>
       )}
-      {!typeArgs && typeFields && (
+      {(!typeArgs || typeArgs.length < 1) && typeFields && (
         <div className={style.docs__typesWrapper}>
           <p>{page} &#123;</p>
         </div>
