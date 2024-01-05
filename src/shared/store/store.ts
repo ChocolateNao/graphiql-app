@@ -2,9 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { preflight } from 'utils/graphql-connect';
 
-import endpointSlice from './reducers/endpointSlice';
 import docsSlice from './slices/docsSlice';
 import { editorReducer } from './slices/editorSlice';
+import endpointSlice from './slices/endpointSlice';
 
 export const store = configureStore({
   reducer: {
