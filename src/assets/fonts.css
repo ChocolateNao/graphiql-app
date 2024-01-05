@@ -1,32 +1,32 @@
 @font-face {
   font-family: 'SF Pro Display Bold';
-  src: url('./FontsFree-Net-SFProDisplay-Bold.ttf') format('opentype');
+  src: url('/fonts/FontsFree-Net-SFProDisplay-Bold.ttf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SF Pro Display Semibold';
-  src: url('./FontsFree-Net-SFProDisplay-Semibold.ttf') format('opentype');
+  src: url('/fonts/FontsFree-Net-SFProDisplay-Semibold.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SF Pro Display Regular';
-  src: url('./FontsFree-Net-SFProDisplay-Regular.ttf') format('opentype');
+  src: url('/fonts/FontsFree-Net-SFProDisplay-Regular.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'JetBrains Mono Medium';
-  src: url('./JetBrainsMono-Medium.ttf') format('opentype');
+  src: url('/fonts/JetBrainsMono-Medium.ttf') format('opentype');
 }
 
 @font-face {
   font-family: 'JetBrains Mono Regular';
-  src: url('./jetbrains-mono.regular.ttf') format('opentype');
+  src: url('/fonts/jetbrains-mono.regular.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }

@@ -19,12 +19,9 @@ function WelcomePage() {
       <div className={styles.welcome_top__wrapper}>
         <div className={styles.welcome_top}>
           <div className={styles.welcome_top_left}>
-            <h1 className={styles.title}>
-              Welcome to the GraphQL API Playground
-            </h1>
+            <h1 className={styles.title}>{t('welcomePage.welcome')}</h1>
             <h2 className={styles.subtitle}>
-              Explore infinite possibilities and data combination with GraphQL
-              for free!{' '}
+              {t('welcomePage.freePossibilitiesHeading')}{' '}
             </h2>
             <div>
               {user ? (
@@ -47,17 +44,17 @@ function WelcomePage() {
             <div className={styles.welcome_top_right_top}>
               <img
                 className={styles.query}
-                src="./src/assets/png/Query.png"
+                src="png/Query.png"
                 alt="Response"
               />
               <div className={styles.welcome_top_right_title}>
-                <h2>Instant response. </h2>
-                <h3>Get exactly what you are looking for.</h3>
+                <h2>{t('welcomePage.instantResponse')}</h2>
+                <h3>{t('welcomePage.instantResponseText')}</h3>
               </div>
             </div>
             <img
               className={styles.response}
-              src="./src/assets/png/Response.png"
+              src="png/Response.png"
               alt="Query"
             />
           </div>
@@ -65,9 +62,11 @@ function WelcomePage() {
       </div>
       <div className={styles.welcome_bottom}>
         <div className={styles.learn}>
-          <div className={styles.learn_title}>New to Graph QL?</div>
+          <div className={styles.learn_title}>
+            {t('welcomePage.graphqlNewbie')}
+          </div>
           <div className={styles.learn_subtitle}>
-            Get started with free Graph QL tutorials.
+            {t('welcomePage.graphqlTutorials')}
           </div>
           <a
             className={styles.link}
@@ -75,22 +74,29 @@ function WelcomePage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Start learning
+            {t('welcomePage.startLearning')}
           </a>
         </div>
       </div>
-      <div className={styles.team}>Meet our development team</div>
+      <div className={styles.team}>
+        {t('welcomePage.developmentTeamHeading')}
+      </div>
       <div className={styles.cards_container}>
         {teamMembers.map((member) => (
           <TeamMemberCard key={member.id} member={member} />
         ))}
       </div>
+      <div className={styles.text}>{t('welcomePage.inFavorOfRsschool')}</div>
       <div className={styles.text}>
-        This project was created during the final task of RS School React
-        course.
-      </div>
-      <div className={styles.text}>
-        You can find the materials and all the information here
+        {t('welcomePage.inFavorOfRsschoolText')}{' '}
+        <a
+          href="https://rs.school/react/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t('welcomePage.here')}
+        </a>
+        .
       </div>
     </div>
   );

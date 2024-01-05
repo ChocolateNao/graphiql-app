@@ -1,6 +1,9 @@
+import { useLocalization } from 'shared/context/LocalizationContext';
+
 import styles from './Footer.module.scss';
 
 function Footer() {
+  const { t } = useLocalization();
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper_logo}>
@@ -18,8 +21,16 @@ function Footer() {
         </a>
       </div>
       <div>
-        <div>Made with love and passion by:</div>
+        <div>{t('footer.madeWithLove')}</div>
         <div className={styles.footer_github}>
+          <a
+            className={styles.link}
+            href="https://github.com/ChocolateNao"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @ChocolateNao
+          </a>
           <a
             className={styles.link}
             href="https://github.com/Sylphur"
@@ -35,14 +46,6 @@ function Footer() {
             rel="noopener noreferrer"
           >
             @TatsianaSauko
-          </a>
-          <a
-            className={styles.link}
-            href="https://github.com/ChocolateNao"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @ChocolateNao
           </a>
         </div>
       </div>
