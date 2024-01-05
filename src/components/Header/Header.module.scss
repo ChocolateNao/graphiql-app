@@ -38,24 +38,33 @@ header {
   padding: 0 4.2rem;
   align-items: center;
   height: 100%;
+  @include media-mobile {
+    padding: 0 1rem;
+  }
 }
 
 .navigation_left {
   display: flex;
   gap: 2.3rem;
   align-items: center;
+  @include media-mobile {
+    gap: 1rem;
+  }
 }
 .navigation_right {
   display: flex;
   gap: 17rem;
   align-items: center;
   @include media-big-tablet {
-    gap: 6rem;
+    gap: 2rem;
   }
 }
 .buttons {
   display: flex;
   gap: 2rem;
+  @include media-mobile {
+    gap: 0.5rem;
+  }
 }
 
 .link {
@@ -70,10 +79,25 @@ header {
   &:hover {
     background: $color-hovered;
   }
+  @include media-mobile {
+    padding: 0.95rem 1rem;
+  }
 }
 .logo {
-  background-image: url('./src/assets/png/Logo.png');
+  background-image: url('/png/Logo.png');
   width: 6rem;
   height: 6rem;
   background-size: cover;
+}
+
+.settings {
+  background-image: url('/png/Vector.png');
+  width: 2.4rem;
+  height: 2.4rem;
+  background-size: cover;
+  cursor: pointer;
+  @include media-mobile {
+    width: 2rem;
+    height: 2rem;
+  }
 }

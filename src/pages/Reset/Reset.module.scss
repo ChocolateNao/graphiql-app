@@ -85,7 +85,7 @@
   position: relative;
   &:before {
     content: '';
-    background: url('./src/assets/png/Error.png') no-repeat center center;
+    background: url('/png/Error.png') no-repeat center center;
     background-size: 1.8rem 1.8rem;
     position: absolute;
     width: 1.8rem;

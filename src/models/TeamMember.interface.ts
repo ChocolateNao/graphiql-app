@@ -1,4 +1,4 @@
-export interface Member {
+export interface TeamMember {
   id: number;
   name: string;
   role: string;
@@ -6,8 +6,4 @@ export interface Member {
   photo: string;
   contributions: string[];
   github: string;
-}
-
-export interface Props {
-  member: Member;
 }

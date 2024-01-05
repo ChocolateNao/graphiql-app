@@ -22,6 +22,7 @@ function MainEndpointInput() {
     setEndpoint(value);
     setUrl(value);
   };
+
   useEffect(() => {
     if (isSuccess) setTakenSchema(data);
     else if (isError) resetTakenSchema();

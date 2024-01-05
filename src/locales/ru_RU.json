@@ -1,6 +1,7 @@
 {
   "loading": "Загрузка...",
   "select": "Выбрать",
+  "bigOR": "ИЛИ",
   "now": "сейчас",
   "settings": {
     "currentLocale": "ru"
@@ -29,21 +30,39 @@
     "welcome": "Приветственная страница"
   },
   "welcomePage": {
-    "welcome": "Добро пожаловать, %name%!"
+    "welcome": "Добро пожаловать в песочницу для GraphQL запросов",
+    "freePossibilitiesHeading": "Исследуйте безграничные возможности и комбинации данных с помощью GraphQL бесплатно!",
+    "instantResponse": "Моментальный ответ.",
+    "instantResponseText": "В точности следуя запросу.",
+    "graphqlNewbie": "Впервые с GraphQL?",
+    "graphqlTutorials": "Начните с бесплатных руководств по Graph QL.",
+    "startLearning": "Начать учиться",
+    "developmentTeamHeading": "Встречайте нашу команду",
+    "inFavorOfRsschool": "Этот проект был создан во время финального задания курса RS School React.",
+    "inFavorOfRsschoolText": "Вы можете найти материалы и всю информацию ",
+    "here": "здесь"
   },
   "loginPage": {
-    "noProfile": "Нет аккаунта?"
+    "noProfile": "Нет аккаунта?",
+    "welcomeBack": "Добро пожаловать снова!"
   },
   "registerPage": {
-    "yesProfile": "Уже есть аккаунт?"
+    "yesProfile": "Уже есть аккаунт?",
+    "welcomeHeader": "Добро пожаловать на борт!"
   },
   "passwordResetPage": {
     "sendResetLink": "Отправить ссылку на восстановение пароля на эл.почту"
   },
   "mainPage": {
+    "variablesSwitch": "Переменные",
+    "headersSwitch": "Заголовки",
+    "response": "Ответ",
     "lables": {
       "endpoint": "Адрес API:"
     }
+  },
+  "footer": {
+    "madeWithLove": "Сделано нами с любовью и страстью:"
   },
   "errorPage": {
     "errorFallback": {
@@ -52,6 +71,52 @@
       "reload": "Перезагрузить страницу"
     }
   },
+  "teamMembersCard": {
+    "andrey": {
+      "name": "Андрей Логинов",
+      "role": "Тимлид, Фронтенд разработчик",
+      "bio": "Андрей — целеустремлённый программист-самоучка, который стремится реализовать свои амбиции и стать профессиональным разработчиком. Создавая инструменты и библиотеки и постоянно оттачивая навыки, он постепенно прокладывает путь к карьере в сфере ИТ.",
+      "contributions": {
+        "repo": "Скрипты, настройка репозитория",
+        "vercel": "Установка Vercel",
+        "locales": "Локализация",
+        "tests": "Тестирование",
+        "store": "Redux store",
+        "design": "Макет приложения в Figma",
+        "finals": "Окончательная проверка"
+      }
+    },
+    "tatiana": {
+      "name": "Татьяна Габермель",
+      "role": "Фронтенд разработчик",
+      "bio": "Татьяна имеет педагогическое образование. В прошлой жизни она была учителем математики. Татьяна занимается фронтенд-разработкой почти 1,5 года, надеясь стать специалистом в этой области до достижения пенсионного возраста.",
+      "contributions": {
+        "registration": "Разработка авторизации",
+        "router": "Настройка роутера",
+        "layout": "SCSS верстка (страницы, sticky header и т.д)",
+        "editorsFunctionality": "Функционал редактора",
+        "queryPrettifying": "Prettifying запроса",
+        "formValidation": "Валидация форм"
+      }
+    },
+    "evgeniy": {
+      "name": "Евгений Редьченко",
+      "role": "Фронтенд разработчик",
+      "bio": "Евгений - хороший человек",
+      "contributions": {
+        "editor": "Изначальная версия редактора",
+        "reqHandler": "Graph QL обработчики запросов и ответов",
+        "apiInput": "Graph QL ввод адреса API",
+        "store": "Redux store",
+        "headersVars": "Логика переменных и заголовков",
+        "documentation": "Логика раздела документации к API"
+      }
+    }
+  },
+  "endpointSettings": {
+    "endpointSettingsHeading": "Настройки эндпоинта",
+    "useProxy": "Использовать встроенный прокси в случае ошибок CORS"
+  },
   "placeholders": {
     "fullName": "Введите полное имя",
     "email": "Введите адрес эл. почты",
@@ -59,7 +124,9 @@
     "passwordConfirm": "Повторите введённый пароль",
     "passwordUpdate": "Введите новый пароль",
     "code": "Введите Graph QL запрос",
-    "endpoint": "Введите Graph QL API URL адрес"
+    "endpoint": "Введите Graph QL API URL адрес",
+    "headers": "Введите заголовки",
+    "variables": "Введите переменные"
   },
   "yup": {
     "name": {

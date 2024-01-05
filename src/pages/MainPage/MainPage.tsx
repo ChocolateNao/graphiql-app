@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useActions, useAppSelector } from 'hooks/redux-hooks';
 
 import Documentation from 'components/Documentation/Documentation';
-import Headers from 'components/Headers';
+import Headers from 'components/HeadersSection';
 import MainEndpointInput from 'components/MainEndpointInput/MainEndpointInput';
-import Variables from 'components/Variables';
+import Variables from 'components/VariablesSection';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import { RootState } from 'shared/store/store';
 import makeGraphQLRequest from 'utils/graphql-request';
@@ -135,7 +135,7 @@ function MainPage() {
                   onClick={() => handleClick('Variables')}
                   disabled={!isPanelOpen}
                 >
-                  Variables
+                  {t('mainPage.variablesSwitch')}
                 </button>
                 <button
                   className={`${isButtonHeadersClicked ? styles.active : ''}`}
@@ -143,7 +143,7 @@ function MainPage() {
                   onClick={() => handleClick('Headers')}
                   disabled={!isPanelOpen}
                 >
-                  Headers
+                  {t('mainPage.headersSwitch')}
                 </button>
               </div>
               {activeComponent === 'Variables' && <Variables />}
@@ -162,7 +162,7 @@ function MainPage() {
         </div>
 
         <div className={styles.column3}>
-          <div className={styles.title}>Response</div>
+          <div className={styles.title}>{t('mainPage.response')}</div>
           <pre>
             <span className={styles.response}>{response}</span>
           </pre>
