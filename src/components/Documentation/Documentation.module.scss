@@ -1,0 +1,65 @@
+.docs__innerWrapper {
+  border-left: 3px solid $color-background-main;
+  padding-left: 1rem;
+  padding-right: 10px;
+  margin-left: 0.5rem;
+  width: 25vw;
+  font-size: 1.6rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @extend %custom-scroll;
+}
+.docs__title {
+  font-size: 2.4rem;
+  text-align: center;
+}
+.docs__description_title {
+  text-align: center;
+  .docs__description_title_cyan {
+    color: $color-text-query;
+  }
+}
+.docs__subtitle {
+  padding-left: 5px;
+  padding-bottom: 1rem;
+}
+.docs__returnBtn_wrapper {
+  text-align: center;
+  padding-bottom: 3px;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid $color-background-main;
+}
+.docs__returnBtn {
+  font-size: 1.4rem;
+  color: $color-dark-placeholder;
+  transition: 0.5s;
+}
+.docs__returnBtn:hover {
+  color: #fff;
+}
+.docs__description {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.docs__argsList {
+  padding-left: 1rem;
+}
+.docs__typesList {
+  padding-left: 2rem;
+}
+.docs__typeName {
+  color: $color-text;
+}
+.docs__error_wrapper {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.docs__error_img {
+  margin-bottom: 2rem;
+  background-image: url('/png/Error.png');
+  background-size: cover;
+  width: 3rem;
+  height: 3rem;
+}

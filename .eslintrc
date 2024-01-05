@@ -41,6 +41,7 @@
     "@typescript-eslint/no-shadow": "off",
     "no-shadow": "off",
     "no-console": ["warn", { "allow": ["error"] }],
+    "no-underscore-dangle": ["error", { "allow": ["__schema"] }],
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/ban-ts-comment": "error",
     "@typescript-eslint/no-non-null-assertion": "off",

@@ -78,6 +78,7 @@
   border-radius: 1rem;
   padding: 2.1rem;
   background-color: $color-background-secondary;
+  transition: width 1.5s ease;
   .icon_doc {
     background-image: url('/png/Docs.png');
     background-size: cover;
@@ -85,6 +86,12 @@
     height: 4.3rem;
     @extend %transition;
     cursor: pointer;
+  }
+  .docs__wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 5px;
   }
 }
 
