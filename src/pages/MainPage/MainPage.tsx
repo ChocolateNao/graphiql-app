@@ -84,12 +84,14 @@ function MainPage() {
       <div className={styles.dashboard__wrapper}>
         <div className={styles.column1}>
           <div className={styles.docs__wrapper}>
-            <button
-              type="button"
-              className={styles.icon_doc}
-              aria-label="Open Docs"
-              onClick={handleDocumentationButtonClick}
-            />
+            <div className={styles.buttons_wrapper}>
+              <button
+                type="button"
+                className={styles.icon_doc}
+                aria-label="Open Docs"
+                onClick={handleDocumentationButtonClick}
+              />
+            </div>
             {isDocsOpen && <Documentation />}
           </div>
         </div>

@@ -32,7 +32,12 @@ function Documentation() {
       {isConnected && schema && !isIndexPage(page) && (
         <DocsTypePage schema={schema} page={page} method={method} type={type} />
       )}
-      {!isConnected && <h2>API is not connected</h2>}
+      {!isConnected && (
+        <div className={styles.docs__error_wrapper}>
+          <div className={styles.docs__error_img} />
+          <h2>API is not connected</h2>
+        </div>
+      )}
     </div>
   );
 }
