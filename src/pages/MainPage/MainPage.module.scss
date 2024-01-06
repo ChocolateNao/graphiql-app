@@ -87,6 +87,11 @@
     @extend %transition;
     cursor: pointer;
   }
+  .icon_doc:hover {
+    box-shadow: 0 0 0 1.1rem #264d74;
+    background-color: #264d74;
+    border-radius: 0.2rem;
+  }
   .docs__wrapper {
     display: flex;
     flex-direction: row;
