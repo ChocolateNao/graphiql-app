@@ -57,6 +57,7 @@
     "variablesSwitch": "Variables",
     "headersSwitch": "Headers",
     "response": "Response",
+    "startCoding": "Start Coding",
     "lables": {
       "endpoint": "API endpoint:"
     }

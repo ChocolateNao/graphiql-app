@@ -9,11 +9,12 @@ import {
 } from 'react';
 
 import {
-  localizationConfig,
   SupportedLocale,
   Translation,
-} from 'utils/localizationConfig';
+} from 'models/LocalizationConfig.interface';
 import processVariables from 'utils/localizationVariables';
+
+import { localizationConfig } from '../../config/localizationConfig';
 
 type TLocalizationContext = {
   locale: SupportedLocale;

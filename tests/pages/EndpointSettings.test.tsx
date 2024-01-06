@@ -25,6 +25,5 @@ describe('Endpoint Settings Page', () => {
     const element = screen.getByText(/endpoint/i);
 
     expect(element).toBeInTheDocument();
-    screen.debug();
   });
 });

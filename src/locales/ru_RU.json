@@ -57,6 +57,7 @@
     "variablesSwitch": "Переменные",
     "headersSwitch": "Заголовки",
     "response": "Ответ",
+    "startCoding": "Начать работу",
     "lables": {
       "endpoint": "Адрес API:"
     }

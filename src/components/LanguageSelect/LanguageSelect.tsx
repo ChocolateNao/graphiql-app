@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 
+import { SupportedLocale } from 'models/LocalizationConfig.interface';
 import { useLocalization } from 'shared/context/LocalizationContext';
-import { SupportedLocale } from 'utils/localizationConfig';
 
 import styles from './LanguageSelect.module.scss';
 
