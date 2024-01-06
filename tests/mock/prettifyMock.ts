@@ -15,7 +15,7 @@ export const prettifiedQueryMock = `query {
   location(id: 1) {
     id
   }
-  episodesByIds(ids: [ 1, 2]) {
+  episodesByIds(ids: [1, 2]) {
     id
   }
 }

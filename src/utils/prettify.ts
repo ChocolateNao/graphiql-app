@@ -25,7 +25,7 @@ function formatBracesAndColons(str: string) {
       } else {
         formattedCode += `\n${str[i]}`;
       }
-    } else if (str[i] === ':' || str[i] === ',' || str[i] === '[') {
+    } else if (str[i] === ':' || str[i] === ',') {
       formattedCode += `${str[i]} `;
     } else {
       formattedCode += str[i];
