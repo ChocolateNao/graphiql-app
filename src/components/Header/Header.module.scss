@@ -89,15 +89,3 @@ header {
   height: 6rem;
   background-size: cover;
 }
-
-.settings {
-  background-image: url('/png/Vector.png');
-  width: 2.4rem;
-  height: 2.4rem;
-  background-size: cover;
-  cursor: pointer;
-  @include media-mobile {
-    width: 2rem;
-    height: 2rem;
-  }
-}
