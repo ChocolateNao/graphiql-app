@@ -20,8 +20,12 @@ function formatBracesAndColons(str: string) {
     if (str[i] === '{') {
       formattedCode += ` ${str[i]}\n`;
     } else if (str[i] === '}') {
-      formattedCode += `\n${str[i]}`;
-    } else if (str[i] === ':') {
+      if (str[i + 1] && str[i + 1] !== '}') {
+        formattedCode += `\n${str[i]}\n`;
+      } else {
+        formattedCode += `\n${str[i]}`;
+      }
+    } else if (str[i] === ':' || str[i] === ',' || str[i] === '[') {
       formattedCode += `${str[i]} `;
     } else {
       formattedCode += str[i];

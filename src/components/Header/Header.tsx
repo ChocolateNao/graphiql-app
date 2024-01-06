@@ -54,7 +54,6 @@ function Header() {
           </div>
           <div className={styles.navigation_right}>
             <LanguageSelect />
-            <NavLink className={styles.settings} to="/endpoint-settings" />
             {user ? (
               <button
                 className={`${styles.link} ${styles.logout}`}
