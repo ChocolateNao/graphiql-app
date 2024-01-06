@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import ErrorBoundary from 'components/ErrorBoundary';
 import ErrorFallback from 'components/ErrorFallback';
+import Loader from 'components/Loader';
 import LocalizationProvider from 'shared/context/LocalizationContext';
 import { store } from 'shared/store/store';
 
@@ -15,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ErrorBoundary fallback={<ErrorFallback />}>
       <Provider store={store}>
-        <LocalizationProvider>
+        <LocalizationProvider loader={<Loader />}>
           <App />
         </LocalizationProvider>
       </Provider>
