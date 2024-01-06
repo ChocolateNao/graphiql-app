@@ -6,6 +6,7 @@ import {
 
 import ErrorFallback from 'components/ErrorFallback';
 import RootLayout from 'layouts/RootLayout';
+import NotFoundPage from 'pages/404';
 import EndpointSettings from 'pages/EndpointSettings';
 import Login from 'pages/Login';
 import MainPage from 'pages/MainPage';
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
         <Route path="reset" element={<Reset />} />
         <Route path="home" element={<MainPage />} />
         <Route path="endpoint-settings" element={<EndpointSettings />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="password-update" element={<PasswordUpdate />} />
     </>
