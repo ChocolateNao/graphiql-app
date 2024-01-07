@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 
 import { SupportedLocale } from 'models/LocalizationConfig.interface';
 import { useLocalization } from 'shared/context/LocalizationContext';
+import { saveLocaleToLS } from 'utils/localstorage';
 
 import styles from './LanguageSelect.module.scss';
 
@@ -9,7 +10,9 @@ function LanguageSelect() {
   const { setLocale } = useLocalization();
 
   const selectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    setLocale(event.target.value as SupportedLocale);
+    const locale = event.target.value as SupportedLocale;
+    setLocale(locale);
+    saveLocaleToLS(locale);
   };
   return (
     <label htmlFor="locale">

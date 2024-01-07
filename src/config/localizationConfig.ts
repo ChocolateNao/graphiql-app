@@ -1,7 +1,11 @@
-import { LocalizationConfig } from 'models/LocalizationConfig.interface';
+import {
+  LocalizationConfig,
+  SupportedLocale,
+} from 'models/LocalizationConfig.interface';
+import { loadLocaleFromLS } from 'utils/localstorage';
 
 // eslint-disable-next-line import/prefer-default-export
 export const localizationConfig: LocalizationConfig = {
-  defaultLocale: 'en_US',
+  defaultLocale: (loadLocaleFromLS() as SupportedLocale) || 'en_US',
   fallbackLocale: 'en_US',
 };
