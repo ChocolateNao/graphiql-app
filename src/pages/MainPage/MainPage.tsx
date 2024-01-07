@@ -19,13 +19,15 @@ function MainPage() {
   const selectHeaders = (state: RootState) => state.editor.headers;
   const selectEndpoint = (state: RootState) => state.endpoint.url;
   const selectDocsIsOpened = (state: RootState) => state.docs.isOpened;
+  const selectIsFetching = (state: RootState) => state.editor.isFetching;
   const request = useAppSelector(selectRequest);
   const response = useAppSelector(selectResponse);
   const variables = useAppSelector(selectVariables);
   const headers = useAppSelector(selectHeaders);
   const endpoint = useAppSelector(selectEndpoint);
   const isDocsOpen = useAppSelector(selectDocsIsOpened);
-  const { setRequest, setResponse, setIsOpened } = useActions();
+  const isFetching = useAppSelector(selectIsFetching);
+  const { setRequest, setResponse, setIsOpened, setIsFetching } = useActions();
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isButtonVariablesClicked, setIsButtonVariablesClicked] =
@@ -63,6 +65,7 @@ function MainPage() {
   };
 
   const handleRequest = async () => {
+    setIsFetching(true);
     makeGraphQLRequest(
       endpoint,
       request,
@@ -72,8 +75,14 @@ function MainPage() {
       headers,
       isProxyEnabled
     )
-      .then((res) => setResponse(JSON.stringify(res, null, 2)))
-      .catch((err: Error) => setResponse(JSON.stringify(err.message, null, 2)));
+      .then((res) => {
+        setResponse(JSON.stringify(res, null, 2));
+        setIsFetching(false);
+      })
+      .catch((err: Error) => {
+        setResponse(JSON.stringify(err.message, null, 2));
+        setIsFetching(false);
+      });
   };
   const handleRequestFieldChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
@@ -180,7 +189,9 @@ function MainPage() {
         <div className={styles.column3}>
           <div className={styles.title}>{t('mainPage.response')}</div>
           <pre>
-            <span className={styles.response}>{response}</span>
+            <span className={styles.response}>
+              {isFetching ? <div>{t('loading')}</div> : response}
+            </span>
           </pre>
         </div>
       </div>

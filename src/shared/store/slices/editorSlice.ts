@@ -5,6 +5,7 @@ interface EditorState {
   response: string;
   variables: string;
   headers: string;
+  isFetching: boolean;
   isProxyEnabled: boolean;
 }
 
@@ -13,6 +14,7 @@ const initialEditorState: EditorState = {
   response: '',
   variables: '',
   headers: '',
+  isFetching: false,
   isProxyEnabled: false,
 };
 
@@ -35,6 +37,9 @@ const editorSlice = createSlice({
     setIsProxyEnabled(state, action) {
       state.isProxyEnabled = action.payload;
     },
+    setIsFetching(state, action) {
+      state.isFetching = action.payload;
+    },
   },
 });
 
@@ -44,6 +49,7 @@ export const {
   setVariables,
   setHeaders,
   setIsProxyEnabled,
+  setIsFetching,
 } = editorSlice.actions;
 
 export const editorReducer = editorSlice.reducer;
