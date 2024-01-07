@@ -26,7 +26,7 @@
     }
   },
   "navigation": {
-    "home": "Home",
+    "home": "Editor",
     "welcome": "Welcome"
   },
   "welcomePage": {
@@ -34,8 +34,8 @@
     "freePossibilitiesHeading": "Explore infinite possibilities and data combination with GraphQL for free!",
     "instantResponse": "Instant response.",
     "instantResponseText": "Get exactly what you are looking for.",
-    "graphqlNewbie": "New to Graph QL?",
-    "graphqlTutorials": "Get started with free Graph QL tutorials.",
+    "graphqlNewbie": "New to GraphQL?",
+    "graphqlTutorials": "Get started with free GraphQL tutorials.",
     "startLearning": "Start learning",
     "developmentTeamHeading": "Meet our development team",
     "inFavorOfRsschool": "This project was created during the final task of RS School React course.",
@@ -103,11 +103,11 @@
     "evgeniy": {
       "name": "Evgeniy Redchenko",
       "role": "Frontend Developer",
-      "bio": "Evgeniy was started his programming carrier in 2021 with a commercial project - a site for restoraunt. It was such an exciting experience that he decided to fully immerse himself in this job, learning and improving his project in parallel",
+      "bio": "Evgeniy was started his programming carrier in 2021 with a commercial project - a site for restaurant. It was such an exciting experience that he decided to fully immerse himself in this job, learning and improving his project in parallel",
       "contributions": {
         "editor": "The initial version of the editor",
-        "reqHandler": "Graph QL request & response handler",
-        "apiInput": "Graph QL API input",
+        "reqHandler": "GraphQL request & response handler",
+        "apiInput": "GraphQL API input",
         "store": "Redux store",
         "headersVars": "Variables & headers logic",
         "documentation": "Documentation section logic"
@@ -125,13 +125,13 @@
     "passwordConfirm": "Repeat your password",
     "passwordUpdate": "Enter new password",
     "code": "Enter your query here",
-    "endpoint": "Enter your Graph QL API endpoint",
+    "endpoint": "Enter your GraphQL API endpoint",
     "headers": "Enter headers",
     "variables": "Enter variables"
   },
   "yup": {
     "name": {
-      "matches": "First letter should be uppercased",
+      "matches": "First letter should be upper-cased",
       "required": "Name is required in order to proceed"
     },
     "email": {
@@ -160,6 +160,12 @@
     "return-btn": "return",
     "errors": {
       "not-connected": "API is not connected"
+    }
+  },
+  "toaster": {
+    "errors": {
+      "wrongVariables": "Please enter valid JSON in variables",
+      "wrongHeaders": "Please enter valid JSON in headers"
     }
   }
 }

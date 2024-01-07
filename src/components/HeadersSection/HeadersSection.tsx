@@ -7,7 +7,7 @@ import styles from './HeadersSection.module.scss';
 
 function Headers() {
   const { t } = useLocalization();
-  const selectHeaders = (state: RootState) => state.editor.variables;
+  const selectHeaders = (state: RootState) => state.editor.headers;
   const headers = useAppSelector(selectHeaders);
   const { setHeaders } = useActions();
 

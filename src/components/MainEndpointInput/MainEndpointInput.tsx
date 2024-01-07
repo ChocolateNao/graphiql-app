@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useActions } from 'hooks/redux-hooks';
+import { useActions, useAppSelector } from 'hooks/redux-hooks';
 import { useDebounce } from 'use-debounce';
 
 import { useLocalization } from 'shared/context/LocalizationContext';
+import { RootState } from 'shared/store/store';
 import { useCachedPreflightQuery } from 'utils/graphql-connect';
 
 import styles from './MainEndpointInput.module.scss';
 
 function MainEndpointInput() {
-  const [endpoint, setEndpoint] = useState('');
+  const selectEndpoint = (state: RootState) => state.endpoint.url;
+  const endpointState = useAppSelector(selectEndpoint);
+  const [endpoint, setEndpoint] = useState(endpointState);
   const [endpointDebounce] = useDebounce(endpoint, 1000);
 
   const { setTakenSchema, resetTakenSchema, setUrl } = useActions();
@@ -26,7 +29,14 @@ function MainEndpointInput() {
   useEffect(() => {
     if (isSuccess) setTakenSchema(data);
     else if (isError) resetTakenSchema();
-  }, [data, isError, isSuccess, resetTakenSchema, setTakenSchema]);
+  }, [
+    data,
+    endpointState,
+    isError,
+    isSuccess,
+    resetTakenSchema,
+    setTakenSchema,
+  ]);
 
   return (
     <>
@@ -39,6 +49,7 @@ function MainEndpointInput() {
           name="api-endpoint"
           id="api-endpoint"
           type="text"
+          value={endpointState}
           placeholder={t('placeholders.endpoint')}
           className={styles.dashboard__endpoint_input}
           onChange={handleEndpointChange}
