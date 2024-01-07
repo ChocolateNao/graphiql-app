@@ -86,6 +86,7 @@
     height: 4.3rem;
     @extend %transition;
     cursor: pointer;
+    margin: 0 auto;
   }
   .icon_doc:hover {
     box-shadow: 0 0 0 1.1rem #264d74;
@@ -181,7 +182,7 @@
 }
 
 .close_button {
-  background-image: url('/png/arrow-down.png');
+  background-image: url('/png/arrow-up.png');
   width: 2.5rem;
   height: 2.5rem;
   background-size: cover;
@@ -189,7 +190,7 @@
 }
 
 .open_button {
-  background-image: url('/png/arrow-up.png');
+  background-image: url('/png/arrow-down.png');
 }
 
 .height_row1 {
@@ -218,4 +219,18 @@
   @include media-tablet {
     height: 50vh;
   }
+}
+.buttons_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.settings {
+  display: inline-block;
+  background: url('/png/Settings.png');
+  width: 5rem;
+  height: 5rem;
+  background-size: cover;
+  cursor: pointer;
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useActions, useAppSelector } from 'hooks/redux-hooks';
 
 import Documentation from 'components/Documentation/Documentation';
@@ -100,6 +101,7 @@ function MainPage() {
                 aria-label="Open Docs"
                 onClick={handleDocumentationButtonClick}
               />
+              <NavLink className={styles.settings} to="/endpoint-settings" />
             </div>
             {isDocsOpen && <Documentation />}
           </div>
