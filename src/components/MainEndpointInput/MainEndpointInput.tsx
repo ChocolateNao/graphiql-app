@@ -7,8 +7,13 @@ import { useCachedPreflightQuery } from 'utils/graphql-connect';
 
 import styles from './MainEndpointInput.module.scss';
 
-function MainEndpointInput() {
-  const [endpoint, setEndpoint] = useState('');
+interface EndpointInputProps {
+  endpointState: string;
+}
+
+function MainEndpointInput(props: EndpointInputProps) {
+  const { endpointState } = props;
+  const [endpoint, setEndpoint] = useState(endpointState);
   const [endpointDebounce] = useDebounce(endpoint, 1000);
 
   const { setTakenSchema, resetTakenSchema, setUrl } = useActions();
@@ -26,7 +31,14 @@ function MainEndpointInput() {
   useEffect(() => {
     if (isSuccess) setTakenSchema(data);
     else if (isError) resetTakenSchema();
-  }, [data, isError, isSuccess, resetTakenSchema, setTakenSchema]);
+  }, [
+    data,
+    endpointState,
+    isError,
+    isSuccess,
+    resetTakenSchema,
+    setTakenSchema,
+  ]);
 
   return (
     <>
@@ -39,6 +51,7 @@ function MainEndpointInput() {
           name="api-endpoint"
           id="api-endpoint"
           type="text"
+          value={endpointState}
           placeholder={t('placeholders.endpoint')}
           className={styles.dashboard__endpoint_input}
           onChange={handleEndpointChange}

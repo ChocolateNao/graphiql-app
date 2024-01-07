@@ -159,8 +159,9 @@
 }
 
 .column3 {
+  flex-shrink: 2;
   border-radius: 1rem;
-  padding: 2.1rem 6rem;
+  padding: 2.1rem 4rem;
   overflow-y: auto;
   @extend %custom-scroll;
   background-color: $color-background-secondary;

@@ -16,19 +16,21 @@ function MainPage() {
   const selectRequest = (state: RootState) => state.editor.request;
   const selectResponse = (state: RootState) => state.editor.response;
   const selectVariables = (state: RootState) => state.editor.variables;
+  const selectHeaders = (state: RootState) => state.editor.headers;
+  const selectEndpoint = (state: RootState) => state.endpoint.url;
+  const selectDocsIsOpened = (state: RootState) => state.docs.isOpened;
   const request = useAppSelector(selectRequest);
   const response = useAppSelector(selectResponse);
   const variables = useAppSelector(selectVariables);
-  const { setRequest, setResponse } = useActions();
+  const headers = useAppSelector(selectHeaders);
+  const endpoint = useAppSelector(selectEndpoint);
+  const isDocsOpen = useAppSelector(selectDocsIsOpened);
+  const { setRequest, setResponse, setIsOpened } = useActions();
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
-  const [isDocsOpen, setIsDocsOpen] = useState(false);
   const [isButtonVariablesClicked, setIsButtonVariablesClicked] =
     useState(false);
   const [isButtonHeadersClicked, setIsButtonHeadersClicked] = useState(false);
-
-  const selectEndpoint = (state: RootState) => state.endpoint.url;
-  const endpoint = useAppSelector(selectEndpoint);
 
   const { t } = useLocalization();
 
@@ -53,11 +55,18 @@ function MainPage() {
   };
 
   const handleDocumentationButtonClick = () => {
-    setIsDocsOpen(!isDocsOpen);
+    setIsOpened(!isDocsOpen);
   };
 
   const handleRequest = async () => {
-    makeGraphQLRequest(endpoint, request, variables)
+    makeGraphQLRequest(
+      endpoint,
+      request,
+      t('toaster.errors.wrongVariables'),
+      t('toaster.errors.wrongHeaders'),
+      variables,
+      headers
+    )
       .then((res) => setResponse(JSON.stringify(res, null, 2)))
       .catch((err: Error) => setResponse(JSON.stringify(err.message, null, 2)));
   };
@@ -79,7 +88,7 @@ function MainPage() {
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__endpoint_wrapper}>
-        <MainEndpointInput />
+        <MainEndpointInput endpointState={endpoint} />
       </div>
       <div className={styles.dashboard__wrapper}>
         <div className={styles.column1}>
