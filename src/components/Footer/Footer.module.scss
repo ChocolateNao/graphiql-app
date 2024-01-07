@@ -23,6 +23,10 @@ a {
   color: $color-text;
 }
 
+a:hover {
+  color: $color-primary;
+}
+
 .wrapper_logo {
   padding: 10px 0;
   display: flex;
