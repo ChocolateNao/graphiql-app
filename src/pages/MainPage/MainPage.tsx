@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useActions, useAppSelector } from 'hooks/redux-hooks';
 
 import Documentation from 'components/Documentation/Documentation';
@@ -7,12 +8,14 @@ import MainEndpointInput from 'components/MainEndpointInput/MainEndpointInput';
 import Variables from 'components/VariablesSection';
 import { useLocalization } from 'shared/context/LocalizationContext';
 import { RootState } from 'shared/store/store';
+import { auth } from 'utils/firebase';
 import makeGraphQLRequest from 'utils/graphql-request';
 import { formatQuery, isCodeValid } from 'utils/prettify';
 
 import styles from './MainPage.module.scss';
 
 function MainPage() {
+  const navigate = useNavigate();
   const selectRequest = (state: RootState) => state.editor.request;
   const selectResponse = (state: RootState) => state.editor.response;
   const selectVariables = (state: RootState) => state.editor.variables;
@@ -33,6 +36,17 @@ function MainPage() {
   const [isButtonHeadersClicked, setIsButtonHeadersClicked] = useState(false);
 
   const { t } = useLocalization();
+
+  useEffect(() => {
+    const unsubscribe = auth.onIdTokenChanged((user) => {
+      if (!user) {
+        navigate('/');
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [navigate]);
 
   const selectIsProxyEnabled = (state: RootState) =>
     state.editor.isProxyEnabled;
