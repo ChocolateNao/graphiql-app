@@ -10,10 +10,12 @@ import styles from './MainEndpointInput.module.scss';
 
 function MainEndpointInput() {
   const selectEndpoint = (state: RootState) => state.endpoint.url;
+  const selectProxyEnabled = (state: RootState) => state.editor.isProxyEnabled;
   const endpointState = useAppSelector(selectEndpoint);
+  const isProxyEnabled = useAppSelector(selectProxyEnabled);
   const [endpoint, setEndpoint] = useState(endpointState);
   const [endpointDebounce] = useDebounce(endpoint, 1000);
-  const [isChecked, setChecked] = useState(false);
+  const [isChecked, setChecked] = useState(isProxyEnabled);
 
   const { setTakenSchema, resetTakenSchema, setUrl, setIsProxyEnabled } =
     useActions();
