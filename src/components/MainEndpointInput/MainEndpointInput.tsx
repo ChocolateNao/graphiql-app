@@ -32,9 +32,9 @@ function MainEndpointInput() {
     setChecked(!isChecked);
 
     if (!isChecked) {
-      setIsProxyEnabled(false);
-    } else {
       setIsProxyEnabled(true);
+    } else {
+      setIsProxyEnabled(false);
     }
   };
 
