@@ -87,7 +87,7 @@ function MainPage() {
   };
 
   return (
-    <div className={styles.dashboard}>
+    <main className={styles.dashboard}>
       <div className={styles.dashboard__endpoint_wrapper}>
         <MainEndpointInput />
       </div>
@@ -180,7 +180,7 @@ function MainPage() {
           </pre>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 export default MainPage;

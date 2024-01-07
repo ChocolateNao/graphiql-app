@@ -18,7 +18,7 @@ function WelcomePage() {
 
   return (
     <Suspense fallback={<Loader />}>
-      <div className={styles.welcome}>
+      <main className={styles.welcome}>
         <div className={styles.welcome_top__wrapper}>
           <div className={styles.welcome_top}>
             <div className={styles.welcome_top_left}>
@@ -105,7 +105,7 @@ function WelcomePage() {
           </a>
           .
         </div>
-      </div>
+      </main>
     </Suspense>
   );
 }

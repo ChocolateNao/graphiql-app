@@ -30,7 +30,7 @@ function Documentation() {
 
   return (
     <Suspense fallback={<Loader />}>
-      <div className={styles.docs__innerWrapper}>
+      <section className={styles.docs__innerWrapper}>
         <h1 className={styles.docs__title}>{t('documentation.title')}</h1>
         {isConnected && schema && page === 'index' && (
           <DocsMain schema={schema} />
@@ -49,7 +49,7 @@ function Documentation() {
             <h2>{t('documentation.errors.not-connected')}</h2>
           </div>
         )}
-      </div>
+      </section>
     </Suspense>
   );
 }
