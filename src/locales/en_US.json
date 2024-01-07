@@ -2,6 +2,7 @@
   "loading": "Loading...",
   "select": "Select",
   "bigOR": "OR",
+  "proxy": "Proxy",
   "now": "now",
   "settings": {
     "currentLocale": "en"

@@ -5,6 +5,7 @@ interface EditorState {
   response: string;
   variables: string;
   headers: string;
+  isProxyEnabled: boolean;
 }
 
 const initialEditorState: EditorState = {
@@ -12,6 +13,7 @@ const initialEditorState: EditorState = {
   response: '',
   variables: '',
   headers: '',
+  isProxyEnabled: false,
 };
 
 const editorSlice = createSlice({
@@ -30,10 +32,18 @@ const editorSlice = createSlice({
     setHeaders(state, action) {
       state.headers = action.payload;
     },
+    setIsProxyEnabled(state, action) {
+      state.isProxyEnabled = action.payload;
+    },
   },
 });
 
-export const { setRequest, setResponse, setVariables, setHeaders } =
-  editorSlice.actions;
+export const {
+  setRequest,
+  setResponse,
+  setVariables,
+  setHeaders,
+  setIsProxyEnabled,
+} = editorSlice.actions;
 
 export const editorReducer = editorSlice.reducer;

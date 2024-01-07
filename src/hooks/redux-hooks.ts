@@ -6,6 +6,7 @@ import { RootState } from 'shared/store/store';
 import { docsActions } from '../shared/store/slices/docsSlice';
 import {
   setHeaders,
+  setIsProxyEnabled,
   setRequest,
   setResponse,
   setVariables,
@@ -19,6 +20,7 @@ const actions = {
   setResponse,
   setVariables,
   setHeaders,
+  setIsProxyEnabled,
 };
 
 export const useActions = () => {

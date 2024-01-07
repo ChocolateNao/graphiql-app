@@ -2,6 +2,7 @@
   "loading": "Загрузка...",
   "select": "Выбрать",
   "bigOR": "ИЛИ",
+  "proxy": "Прокси",
   "now": "сейчас",
   "settings": {
     "currentLocale": "ru"

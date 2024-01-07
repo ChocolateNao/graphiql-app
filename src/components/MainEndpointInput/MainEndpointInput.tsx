@@ -13,8 +13,10 @@ function MainEndpointInput() {
   const endpointState = useAppSelector(selectEndpoint);
   const [endpoint, setEndpoint] = useState(endpointState);
   const [endpointDebounce] = useDebounce(endpoint, 1000);
+  const [isChecked, setChecked] = useState(false);
 
-  const { setTakenSchema, resetTakenSchema, setUrl } = useActions();
+  const { setTakenSchema, resetTakenSchema, setUrl, setIsProxyEnabled } =
+    useActions();
 
   const { t } = useLocalization();
   const { data, isFetching, isError, isSuccess } =
@@ -24,6 +26,16 @@ function MainEndpointInput() {
     const { value } = event.target;
     setEndpoint(value);
     setUrl(value);
+  };
+
+  const handleCheckboxChange = () => {
+    setChecked(!isChecked);
+
+    if (!isChecked) {
+      setIsProxyEnabled(false);
+    } else {
+      setIsProxyEnabled(true);
+    }
   };
 
   useEffect(() => {
@@ -55,6 +67,19 @@ function MainEndpointInput() {
           onChange={handleEndpointChange}
         />
       </label>
+      <div className={styles.switch_container}>
+        <div className={styles.btn_switch}>
+          <label className={styles.switch}>
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            <span className={styles.slider} />
+          </label>
+        </div>
+        {t('proxy')}
+      </div>
       {isSuccess && <span>✔️</span>}
       {isError && <span>❌</span>}
       {isFetching && <span>⚠️</span>}

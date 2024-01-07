@@ -1,5 +1,7 @@
 import { toast } from 'react-toastify';
 
+import proxyUrl from '../config/proxyConfig';
+
 const parseVariables = (variables: string, errorMsg: string | undefined) => {
   let parsedVariables = '';
   if (variables.trim() !== '') {
@@ -32,10 +34,26 @@ const makeGraphQLRequest = async (
   variablesErr: string | undefined,
   headersErr: string | undefined,
   variables: string = '',
-  headers: string = ''
+  headers: string = '',
+  isProxyEnabled?: boolean
 ) => {
   const parsedVariables = parseVariables(variables, variablesErr);
   const parsedHeaders = parseHeaders(headers, headersErr);
+  if (isProxyEnabled) {
+    const res = await fetch(proxyUrl, {
+      method: 'POST',
+      headers: {
+        ...parsedHeaders,
+      },
+      body: JSON.stringify({
+        apiUrl: url,
+        graphqlQuery: query,
+        variables: parsedVariables,
+        dynamicHeaders: parsedHeaders,
+      }),
+    });
+    return res.json();
+  }
   const res = await fetch(url, {
     method: 'POST',
     headers: parsedHeaders,
