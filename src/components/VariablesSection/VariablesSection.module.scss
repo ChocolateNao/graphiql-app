@@ -1,0 +1,7 @@
+.variables__textarea {
+  height: 75%;
+  width: 100%;
+  @extend %custom-scroll;
+  @extend %font-query;
+  color: $color-text-query;
+}

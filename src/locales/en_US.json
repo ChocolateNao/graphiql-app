@@ -1,0 +1,172 @@
+{
+  "loading": "Loading...",
+  "select": "Select",
+  "bigOR": "OR",
+  "proxy": "Proxy",
+  "now": "now",
+  "settings": {
+    "currentLocale": "en"
+  },
+  "authorization": {
+    "login": "Log In",
+    "loginGoogle": "Log In with Google",
+    "register": "Sign Up",
+    "registerGoogle": "Sign Up with Google",
+    "logout": "Log Out",
+    "passwordForgot": "Forgot Password",
+    "passwordReset": "Password Reset",
+    "passwordUpdate": "Set a new password",
+    "passwordSet": "Set Password",
+    "lables": {
+      "email": "E-Mail",
+      "password": "Password",
+      "passwordNew": "New Password",
+      "passwordConfirm": "Password Repeat",
+      "passwordShow": "Show password",
+      "fullName": "Full Name"
+    }
+  },
+  "navigation": {
+    "home": "Editor",
+    "welcome": "Welcome"
+  },
+  "welcomePage": {
+    "welcome": "Welcome to the GraphQL API Playground",
+    "freePossibilitiesHeading": "Explore infinite possibilities and data combination with GraphQL for free!",
+    "instantResponse": "Instant response.",
+    "instantResponseText": "Get exactly what you are looking for.",
+    "graphqlNewbie": "New to GraphQL?",
+    "graphqlTutorials": "Get started with free GraphQL tutorials.",
+    "startLearning": "Start learning",
+    "developmentTeamHeading": "Meet our development team",
+    "inFavorOfRsschool": "This project was created during the final task of RS School React course.",
+    "inFavorOfRsschoolText": "You can find the materials and all the information ",
+    "here": "here"
+  },
+  "loginPage": {
+    "noProfile": "Don't have an account?",
+    "welcomeBack": "Welcome back!"
+  },
+  "registerPage": {
+    "yesProfile": "Already have an account?",
+    "welcomeHeader": "Come abroad!"
+  },
+  "passwordResetPage": {
+    "sendResetLink": "Send password reset e-mail"
+  },
+  "mainPage": {
+    "variablesSwitch": "Variables",
+    "headersSwitch": "Headers",
+    "response": "Response",
+    "startCoding": "Start Coding",
+    "lables": {
+      "endpoint": "API endpoint:"
+    }
+  },
+  "footer": {
+    "madeWithLove": "Made with love and passion by:"
+  },
+  "errorPage": {
+    "errorFallback": {
+      "header": "Oopsie Woopsie! Something went wrong.",
+      "text": "You can try to refresh the page or simply click the button here that will do it for you.",
+      "reload": "Reload page"
+    }
+  },
+  "teamMembersCard": {
+    "andrey": {
+      "name": "Andrey Loginov",
+      "role": "Team Lead, Frontend Developer",
+      "bio": "Andrey is a passionate self-taught programmer on a journey to fulfill his ambition of working as a professional developer. Through building tools and libraries and continuously honing skills, He's gradually paving the way towards a career in IT.",
+      "contributions": {
+        "repo": "Added development scripts and set up repository",
+        "vercel": "Set up Vercel for deployment",
+        "locales": "Localization",
+        "tests": "Tests",
+        "store": "Redux store",
+        "design": "Figma design",
+        "finals": "Final polishing and check-ups"
+      }
+    },
+    "tatiana": {
+      "name": "Tatiana Gabermel",
+      "role": "Frontend Developer",
+      "bio": "Tatiana has a pedagogical education. In her previous life she was a math teacher. Tatiana has been studying frontend development for almost 1.5 years, hoping to become a specialist in this field before reaching retirement age.",
+      "contributions": {
+        "registration": "Developed registration, login",
+        "router": "Set up router",
+        "layout": "SCSS layout (pages, sticky header etc.)",
+        "editorsFunctionality": "Editor's functionality",
+        "queryPrettifying": "Query prettifying",
+        "formValidation": "Forms validation"
+      }
+    },
+    "evgeniy": {
+      "name": "Evgeniy Redchenko",
+      "role": "Frontend Developer",
+      "bio": "Evgeniy was started his programming carrier in 2021 with a commercial project - a site for restaurant. It was such an exciting experience that he decided to fully immerse himself in this job, learning and improving his project in parallel",
+      "contributions": {
+        "editor": "The initial version of the editor",
+        "reqHandler": "GraphQL request & response handler",
+        "apiInput": "GraphQL API input",
+        "store": "Redux store",
+        "headersVars": "Variables & headers logic",
+        "documentation": "Documentation section logic"
+      }
+    }
+  },
+  "endpointSettings": {
+    "endpointSettingsHeading": "Endpoint Settings",
+    "useProxy": "Use built-in proxy in case of CORS errors"
+  },
+  "placeholders": {
+    "fullName": "Enter your full name",
+    "email": "Enter your e-mail address",
+    "password": "Enter your password",
+    "passwordConfirm": "Repeat your password",
+    "passwordUpdate": "Enter new password",
+    "code": "Enter your query here",
+    "endpoint": "Enter your GraphQL API endpoint",
+    "headers": "Enter headers",
+    "variables": "Enter variables"
+  },
+  "yup": {
+    "name": {
+      "matches": "First letter should be upper-cased",
+      "required": "Name is required in order to proceed"
+    },
+    "email": {
+      "required": "E-Mail address is required in order to proceed",
+      "valid": "E-Mail address must be valid",
+      "dot": "Domain must contain a dot",
+      "domain": "Domain must contain at least two characters after the dot"
+    },
+    "password": {
+      "required": "Password is required in order to proceed",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "number": "Password must contain at least one number",
+      "special": "Password must contain at least one special character",
+      "length": "Password must be at least 8 characters long",
+      "unicode-password": "Password must support Unicode characters"
+    },
+    "confirmPassword": {
+      "required": "Password repetition is required in order to proceed",
+      "oneOf": "Passwords must match"
+    }
+  },
+  "documentation": {
+    "title": "Documentation",
+    "info-btn": "How it works?",
+    "return-btn": "return",
+    "errors": {
+      "not-connected": "API is not connected"
+    }
+  },
+  "toaster": {
+    "errors": {
+      "wrongVariables": "Please enter valid JSON in variables",
+      "wrongHeaders": "Please enter valid JSON in headers"
+    }
+  }
+}

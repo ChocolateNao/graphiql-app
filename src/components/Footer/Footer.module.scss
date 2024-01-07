@@ -1,0 +1,41 @@
+.logo {
+  width: 12rem;
+  height: auto;
+}
+
+.footer {
+  font-size: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 3rem 3rem;
+  text-align: center;
+  background: $color-background-secondary;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  @include media-mobile {
+    font-size: 2rem;
+  }
+}
+
+a {
+  @extend %transition;
+  color: $color-text;
+}
+
+a:hover {
+  color: $color-primary;
+}
+
+.wrapper_logo {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer_github {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}

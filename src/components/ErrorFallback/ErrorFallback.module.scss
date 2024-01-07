@@ -1,0 +1,16 @@
+.errorboundary {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.errorboundary__text {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.errorboundary__refresh {
+  font-size: 1.2rem;
+}
