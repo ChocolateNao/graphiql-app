@@ -89,7 +89,7 @@ function MainPage() {
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__endpoint_wrapper}>
-        <MainEndpointInput endpointState={endpoint} />
+        <MainEndpointInput />
       </div>
       <div className={styles.dashboard__wrapper}>
         <div className={styles.column1}>
@@ -117,6 +117,7 @@ function MainPage() {
               placeholder={t('placeholders.code')}
               value={request}
               onChange={handleRequestFieldChange}
+              name="request-textarea"
             />
             <div className={styles.dashboard__buttons}>
               <button

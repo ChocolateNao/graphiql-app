@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useActions } from 'hooks/redux-hooks';
+import { useActions, useAppSelector } from 'hooks/redux-hooks';
 import { useDebounce } from 'use-debounce';
 
 import { useLocalization } from 'shared/context/LocalizationContext';
+import { RootState } from 'shared/store/store';
 import { useCachedPreflightQuery } from 'utils/graphql-connect';
 
 import styles from './MainEndpointInput.module.scss';
 
-interface EndpointInputProps {
-  endpointState: string;
-}
-
-function MainEndpointInput(props: EndpointInputProps) {
-  const { endpointState } = props;
+function MainEndpointInput() {
+  const selectEndpoint = (state: RootState) => state.endpoint.url;
+  const endpointState = useAppSelector(selectEndpoint);
   const [endpoint, setEndpoint] = useState(endpointState);
   const [endpointDebounce] = useDebounce(endpoint, 1000);
 
