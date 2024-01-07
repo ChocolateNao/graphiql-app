@@ -16,6 +16,7 @@ function Headers() {
   };
   return (
     <textarea
+      spellCheck="false"
       className={styles.headers__textarea}
       placeholder={t('placeholders.headers')}
       value={headers}

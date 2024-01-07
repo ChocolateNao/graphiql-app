@@ -116,6 +116,7 @@ function MainPage() {
             }`}
           >
             <textarea
+              spellCheck="false"
               className={styles.dashboard__textarea}
               placeholder={t('placeholders.code')}
               value={request}

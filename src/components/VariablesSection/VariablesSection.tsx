@@ -17,6 +17,7 @@ function Variables() {
 
   return (
     <textarea
+      spellCheck="false"
       className={styles.variables__textarea}
       placeholder={t('placeholders.variables')}
       value={variables}
